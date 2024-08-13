@@ -13,11 +13,13 @@ import { useEffect, useState } from "react";
 
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
-  const [data, setData] = useState<any>([{ image: "", text: "" }]);
+  const [data, setData] = useState<any>(null);
+  const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
     extractData().then((data: any) => {
       setData(data);
+      setIsFetching(false);
     });
   }, []);
   console.log(data);
@@ -51,25 +53,28 @@ export const Frame: React.FC = () => {
     }
   );
 
-  const text =
-    "Vivre une période canicule quand on est en vacances, c'est une chose. Mais la subir alors qu'on doit travailler, ça en est une autre. Pour toutes celles qui doivent cumuler bureau et chaleurs extrêmes, la question du look à arborer face à de telles températures est sans doute survenue à plusieurs reprises. Comment rester chic et bien habillée même quand le thermomètre affiche 30+ degrés ? La réponse prend la forme d'une petite robe courte en lin repérée dans la nouvelle collection &Other Stories.";
-
   // A <AbsoluteFill> is just a absolutely positioned <div>!
   return (
-    <AbsoluteFill style={{ backgroundColor: "white" }}>
-      <AbsoluteFill style={{ opacity }}>
-        {/* Sequences can shift the time for its children! */}
-        {data.map((item: any, index: number) => (
-          <Sequence from={index + index * 100} durationInFrames={200}>
-            <AbsoluteFill
-              style={{ transform: `translateY(${logoTranslation}px)` }}
-            >
-              <Background backgroundImage={item.image} />
-            </AbsoluteFill>
-            <Subtitle subtitleText={item.text} />
-          </Sequence>
-        ))}
-      </AbsoluteFill>
-    </AbsoluteFill>
+    <>
+      {isFetching ? (
+        <div>Loading...</div>
+      ) : (
+        <AbsoluteFill style={{ backgroundColor: "white" }}>
+          <AbsoluteFill style={{ opacity }}>
+            {/* Sequences can shift the time for its children! */}
+            {data.map((item: any, index: number) => (
+              <Sequence key={index} from={index * 200} durationInFrames={200}>
+                <AbsoluteFill
+                  style={{ transform: `translateY(${logoTranslation}px)` }}
+                >
+                  <Background backgroundImage={item.image} />
+                </AbsoluteFill>
+                <Subtitle subtitleText={item.text} />
+              </Sequence>
+            ))}
+          </AbsoluteFill>
+        </AbsoluteFill>
+      )}
+    </>
   );
 };

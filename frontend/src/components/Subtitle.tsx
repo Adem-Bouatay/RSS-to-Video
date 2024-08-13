@@ -41,7 +41,7 @@ export const Subtitle: React.FC<{
 
         return (
           <span
-            key={_word}
+            key={i}
             style={{
               ...word,
               color: "#000000",

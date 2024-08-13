@@ -1,6 +1,7 @@
 export async function extractData(): Promise<any> {
   let data;
-  await fetch("/static-b9c166329cf9/output.json")
+  const url = window.remotion_staticFiles[0].src;
+  await fetch(url)
     .then((res) => res.json())
     .then((json) => {
       data = json;
