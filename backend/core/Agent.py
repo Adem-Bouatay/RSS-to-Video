@@ -1,6 +1,6 @@
 from llama_index.llms.gemini import Gemini
 import time
-from DemoOutput import DemoOutput
+from core.DemoOutput import DemoOutput
 PROMPT = """
             "As an expert in analyzing articles for speech synthesis, your task is to extract and structure the text of the article. REMOVE ALL  the HTML BALISES like href or <a> or anything start with < , i want it to be only Text to read like News and make sure each picture is related to the context of its paraphraph"
             "Please split the text into paragraphs and identify the picture from the site that is most related to each paragraph. "
