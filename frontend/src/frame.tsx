@@ -8,9 +8,20 @@ import {
 } from "remotion";
 import { Logo } from "./components/Logo";
 import { Subtitle } from "./components/Subtitle";
+import { extractData } from "./utils/extractData";
+import { useEffect, useState } from "react";
 
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    extractData().then((data: any) => {
+      setData(data);
+    });
+  }, []);
+  console.log(data);
+
   const { durationInFrames, fps } = useVideoConfig();
 
   // Animate from 0 to 1 after 25 frames
@@ -52,6 +63,9 @@ export const Frame: React.FC = () => {
         </AbsoluteFill>
         {/* Sequences can shift the time for its children! */}
         <Sequence from={35}>
+          <Subtitle subtitleText={text} />
+        </Sequence>
+        <Sequence from={700}>
           <Subtitle subtitleText={text} />
         </Sequence>
       </AbsoluteFill>
