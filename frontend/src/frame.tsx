@@ -6,14 +6,14 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Logo } from "./components/Logo";
+import { Background } from "./components/Background";
 import { Subtitle } from "./components/Subtitle";
 import { extractData } from "./utils/extractData";
 import { useEffect, useState } from "react";
 
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<any>([{ image: "", text: "" }]);
 
   useEffect(() => {
     extractData().then((data: any) => {
@@ -58,16 +58,17 @@ export const Frame: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "white" }}>
       <AbsoluteFill style={{ opacity }}>
-        <AbsoluteFill style={{ transform: `translateY(${logoTranslation}px)` }}>
-          <Logo />
-        </AbsoluteFill>
         {/* Sequences can shift the time for its children! */}
-        <Sequence from={35}>
-          <Subtitle subtitleText={text} />
-        </Sequence>
-        <Sequence from={700}>
-          <Subtitle subtitleText={text} />
-        </Sequence>
+        {data.map((item: any, index: number) => (
+          <Sequence from={index + index * 100} durationInFrames={200}>
+            <AbsoluteFill
+              style={{ transform: `translateY(${logoTranslation}px)` }}
+            >
+              <Background backgroundImage={item.image} />
+            </AbsoluteFill>
+            <Subtitle subtitleText={item.text} />
+          </Sequence>
+        ))}
       </AbsoluteFill>
     </AbsoluteFill>
   );

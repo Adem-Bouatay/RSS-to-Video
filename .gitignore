@@ -84,7 +84,6 @@ docs/_build/
 .pybuilder/
 target/
 
-output.json
 output.html
 
 # Jupyter Notebook

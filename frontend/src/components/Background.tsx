@@ -6,7 +6,9 @@ import {
   useVideoConfig,
 } from "remotion";
 
-export const Logo: React.FC = () => {
+export const Background: React.FC<{ backgroundImage: string }> = ({
+  backgroundImage,
+}) => {
   const videoConfig = useVideoConfig();
   const frame = useCurrentFrame();
 
@@ -43,9 +45,6 @@ export const Logo: React.FC = () => {
   );
 
   return (
-    <Img
-      style={{ height: "100%", width: "auto" }}
-      src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/6v/robe-quand-il-fait-chaud-travail.jpg"
-    />
+    <Img style={{ height: "100%", width: "auto" }} src={backgroundImage} />
   );
 };
