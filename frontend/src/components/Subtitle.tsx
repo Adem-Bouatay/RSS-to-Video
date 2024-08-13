@@ -5,10 +5,10 @@ import { FONT_FAMILY } from "./constants";
 const title: React.CSSProperties = {
   fontFamily: FONT_FAMILY,
   fontWeight: "bold",
-  fontSize: 100,
+  fontSize: 30,
   textAlign: "center",
   position: "absolute",
-  bottom: 160,
+  bottom: 50,
   width: "100%",
 };
 
@@ -18,18 +18,17 @@ const word: React.CSSProperties = {
   display: "inline-block",
 };
 
-export const Title: React.FC<{
-  titleText: string;
-  titleColor: string;
-}> = ({ titleText, titleColor }) => {
+export const Subtitle: React.FC<{
+  subtitleText: string;
+}> = ({ subtitleText }) => {
   const videoConfig = useVideoConfig();
   const frame = useCurrentFrame();
 
-  const words = titleText.split(" ");
+  const words = subtitleText.split(" ");
 
   return (
     <h1 style={title}>
-      {words.map((t, i) => {
+      {words.map((_word, i) => {
         const delay = i * 5;
 
         const scale = spring({
@@ -42,14 +41,14 @@ export const Title: React.FC<{
 
         return (
           <span
-            key={t}
+            key={_word}
             style={{
               ...word,
-              color: titleColor,
+              color: "#000000",
               transform: `scale(${scale})`,
             }}
           >
-            {t}
+            {_word}
           </span>
         );
       })}
