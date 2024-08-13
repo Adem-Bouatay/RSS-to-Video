@@ -40,4 +40,4 @@ class Agent:
         print(response)
         with open("output.txt", "w", encoding="utf-8") as file:
             file.write(str(response))
-        return response
+        return f"{response}"

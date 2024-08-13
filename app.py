@@ -1,5 +1,6 @@
-from Extractor import HTMLExtractor
-from Agent import Agent
+from core.Extractor import HTMLExtractor
+from core.Agent import Agent
+from core.DemoOutput import DemoOutput
 from dotenv import load_dotenv
 import os
 import time
@@ -16,7 +17,8 @@ def main():
     html_content = html_extractor.get_html(url)
     print("---------------END EXTRACTING HTML-----------------------")
     agent = Agent(api_key=api_key)
-    agent.extract_content(html_content=html_content)
+    agent_res = agent.extract_content(html_content=html_content)
+    DemoOutput().generate_html_page(content=agent_res)
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
 
