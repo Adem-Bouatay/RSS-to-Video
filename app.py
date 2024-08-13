@@ -10,12 +10,12 @@ api_key = os.getenv("API_KEY")
 
 
 def main():
-    url = "https://www.purepeople.com/article/en-plein-divorce-avec-luana-paul-belmondo-partage-un-beau-moment-avec-leur-fils-victor-et-l-immortalise-en-photo_a526200/1"
+    url = "https://www.cosmopolitan.fr/robe-quand-il-fait-chaud-le-modele-a-porter-au-travail,2120124.asp?dicbo=v4-Vda3hx9-1081301915-0"
     start_time = time.time()
     html_extractor = HTMLExtractor()
-    print("-------------------extracting HTML------------------...")
+    print("-----------------------------EXTRACTING-HTML-----------------------------")
     html_content = html_extractor.get_html(url)
-    print("---------------END EXTRACTING HTML-----------------------")
+    print("---------------------------END-EXTRACTING-HTML---------------------------")
     agent = Agent(api_key=api_key)
     agent_res = agent.extract_content(html_content=html_content)
     DemoOutput().generate_html_page(content=agent_res)

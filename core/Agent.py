@@ -36,7 +36,7 @@ class Agent:
         start = time.time()
         response = self.llm.complete(prompt=PROMPT + html_content)
         end = time.time()
-        print("Time taken: ", int(end-start),"sec \n" ,"Response generated!!","\n-------------------------\n")
+        print("Time taken: ", int(end-start),"sec \n" ,"Response generated!!","\n----------------------------------------------------------\n")
         print(response)
         with open("output.txt", "w", encoding="utf-8") as file:
             file.write(str(response))
