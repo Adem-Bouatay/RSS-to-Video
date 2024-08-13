@@ -40,4 +40,9 @@ class Agent:
         print(response)
         with open("output.txt", "w", encoding="utf-8") as file:
             file.write(str(response))
+                    
+        with open("output.json", "w", encoding="utf-8") as file:
+            json = DemoOutput.extract(f"{response}")
+            file.write(json)
+                    
         return f"{response}"
