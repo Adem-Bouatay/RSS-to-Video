@@ -10,7 +10,7 @@ import { Background } from "./components/Background";
 import { Subtitle } from "./components/Subtitle";
 import { extractData } from "./utils/extractData";
 import { useEffect, useState } from "react";
-
+import { Loading } from "./components/Loading";
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
   const [data, setData] = useState<any>(null);
@@ -57,7 +57,9 @@ export const Frame: React.FC = () => {
   return (
     <>
       {isFetching ? (
-        <div>Loading...</div>
+        <AbsoluteFill style={{ backgroundColor: "white" }}>
+          <Loading />
+        </AbsoluteFill>
       ) : (
         <AbsoluteFill style={{ backgroundColor: "white" }}>
           <AbsoluteFill style={{ opacity }}>
