@@ -1,15 +1,21 @@
 import React from "react";
-import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT_FAMILY } from "./constants";
 
 const title: React.CSSProperties = {
   fontFamily: FONT_FAMILY,
   fontWeight: "bold",
   fontSize: 30,
-  textAlign: "center",
+  textAlign: "justify",
   position: "absolute",
+  padding: 20,
+  left: "0px",
+  right: "0px",
+  marginLeft: "auto",
+  marginRight: "auto",
+  backgroundColor: "black",
   bottom: 50,
-  width: "100%",
+  width: "90%",
 };
 
 const word: React.CSSProperties = {
@@ -29,13 +35,13 @@ export const Subtitle: React.FC<{
   return (
     <h1 style={title}>
       {words.map((_word, i) => {
-        const delay = i * 5;
+        const delay = i * 2;
 
         const scale = spring({
           fps: videoConfig.fps,
           frame: frame - delay,
           config: {
-            damping: 200,
+            damping: 100,
           },
         });
 
@@ -44,8 +50,8 @@ export const Subtitle: React.FC<{
             key={i}
             style={{
               ...word,
-              color: "#000000",
-              transform: `scale(${scale})`,
+              color: "#fff",
+              transform: `opacity(${scale})`,
             }}
           >
             {_word}

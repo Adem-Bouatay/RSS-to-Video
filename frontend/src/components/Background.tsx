@@ -1,50 +1,25 @@
-import {
-  Img,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { Img, useCurrentFrame } from "remotion";
 
 export const Background: React.FC<{ backgroundImage: string }> = ({
   backgroundImage,
 }) => {
-  const videoConfig = useVideoConfig();
   const frame = useCurrentFrame();
 
-  const development = spring({
-    config: {
-      damping: 100,
-      mass: 0.5,
-    },
-    fps: videoConfig.fps,
-    frame,
-  });
-
-  const rotationDevelopment = spring({
-    config: {
-      damping: 100,
-      mass: 0.5,
-    },
-    fps: videoConfig.fps,
-    frame,
-  });
-
-  const scale = spring({
-    frame,
-    config: {
-      mass: 0.5,
-    },
-    fps: videoConfig.fps,
-  });
-
-  const logoRotation = interpolate(
-    frame,
-    [0, videoConfig.durationInFrames],
-    [0, 360]
-  );
+  const scale = Math.min(1.3, frame / 700 + 1);
 
   return (
-    <Img style={{ height: "100%", width: "auto" }} src={backgroundImage} />
+    <Img
+      style={{
+        height: "100%",
+        position: "absolute",
+        left: 0,
+        right: 0,
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: "auto",
+        transform: `scale(${scale})`,
+      }}
+      src={backgroundImage}
+    />
   );
 };
