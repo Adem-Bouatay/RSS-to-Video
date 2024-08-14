@@ -1,4 +1,3 @@
-import { spring } from "remotion";
 import {
   AbsoluteFill,
   interpolate,
@@ -26,7 +25,7 @@ export const Frame: React.FC = () => {
     });
   }, []);
 
-  const { durationInFrames, fps } = useVideoConfig();
+  const { durationInFrames } = useVideoConfig();
 
   const opacity = interpolate(
     frame,
