@@ -1,10 +1,10 @@
-import { spring } from "remotion";
 import {
   AbsoluteFill,
   interpolate,
   Sequence,
   useCurrentFrame,
   useVideoConfig,
+  Audio,
 } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { clockWipe } from "@remotion/transitions/clock-wipe";
@@ -14,6 +14,7 @@ import { Subtitle } from "./components/Subtitle";
 import { extractData } from "./utils/extractData";
 import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
+
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
   const [data, setData] = useState<any>(null);
@@ -74,11 +75,18 @@ export const Frame: React.FC = () => {
                     durationRestThreshold: 0.01,
                   })}
                 />
-                <TransitionSeries.Sequence key={index} durationInFrames={200}>
+                <TransitionSeries.Sequence
+                  key={index}
+                  durationInFrames={(item.duration + 1) * 30}
+                >
                   <AbsoluteFill style={{ opacity }}>
-                    <Sequence from={0} durationInFrames={200}>
+                    <Sequence
+                      from={0}
+                      durationInFrames={(item.duration + 1) * 30}
+                    >
                       <Background backgroundImage={item.image} />
                       <Subtitle subtitleText={item.text} />
+                      <Audio src={item.audio} />
                     </Sequence>
                   </AbsoluteFill>
                 </TransitionSeries.Sequence>
