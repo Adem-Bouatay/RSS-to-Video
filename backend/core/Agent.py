@@ -1,7 +1,7 @@
 from llama_index.llms.gemini import Gemini
 from core.DemoOutput import DemoOutput
 import time
-
+from core.Audio import TextToSpeechProcessor
 PROMPT = """
             "As an expert in analyzing articles for speech synthesis, your task is to extract and structure the text of the article. REMOVE ALL  the HTML BALISES like href or <a> or anything start with < , i want it to be only Text to read like News and make sure each picture is related to the context of its paraphraph"
             "Please split the text into paragraphs and identify the picture from the site that is most related to each paragraph. "
@@ -32,6 +32,7 @@ class Agent:
             model_name="models/gemini-1.5-flash",
             api_key=api_key,
         )
+        self.tts=TextToSpeechProcessor(input_json_path='./output.json',output_json_path="./output_audio.json")
 
     def extract_content(self, html_content):
         start = time.time()
@@ -45,5 +46,5 @@ class Agent:
         with open("output.json", "w", encoding="utf-8") as file:
             json = DemoOutput().extract(f"{response}")
             file.write(json)
-                    
+        self.tts.process()  # Process audio conversion and save to output_audio.json
         return f"{response}"

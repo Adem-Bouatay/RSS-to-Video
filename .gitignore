@@ -85,7 +85,7 @@ docs/_build/
 target/
 
 output.html
-
+audio/
 # Jupyter Notebook
 .ipynb_checkpoints
 
