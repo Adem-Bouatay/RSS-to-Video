@@ -53,10 +53,9 @@ class HTMLExtractor:
         """
         page_source = self.driver.page_source
         soup = BeautifulSoup(page_source, "html.parser")
-        for tag in soup(["style", "script", "svg", "iframe"]):
+        for tag in soup(["style", "script", "svg", "iframe","link","meta","nav","header", "footer"]):
             tag.decompose()
         cleaned_html = soup.prettify()
-
         return cleaned_html
 
     def get_html(self, url):
