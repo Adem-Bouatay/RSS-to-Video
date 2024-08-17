@@ -7,13 +7,12 @@ import {
   Audio,
 } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
-import { clockWipe } from "@remotion/transitions/clock-wipe";
-
 import { Background } from "./components/Background";
 import { Subtitle } from "./components/Subtitle";
 import { extractData } from "./utils/extractData";
 import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
+import { donut } from "./presentations/CirclePresentation";
 
 export const Frame: React.FC = () => {
   const frame = useCurrentFrame();
@@ -55,7 +54,7 @@ export const Frame: React.FC = () => {
           {data.map((item: any, index: number) => {
             return (
               <>
-                <TransitionSeries.Sequence key={index} durationInFrames={30}>
+                <TransitionSeries.Sequence key={index} durationInFrames={40}>
                   <AbsoluteFill
                     style={{
                       backgroundImage:
@@ -66,12 +65,15 @@ export const Frame: React.FC = () => {
                   ></AbsoluteFill>
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition
-                  presentation={clockWipe({ width: 1920, height: 1080 })}
+                  presentation={donut({
+                    width: 1920,
+                    height: 1080,
+                  })}
                   timing={springTiming({
                     config: {
                       damping: 200,
                     },
-                    durationInFrames: 30,
+                    durationInFrames: 40,
                     durationRestThreshold: 0.01,
                   })}
                 />
@@ -86,7 +88,7 @@ export const Frame: React.FC = () => {
                     >
                       <Background backgroundImage={item.image} />
                       <Subtitle subtitleText={item.text} />
-                      <Audio src={item.audio} />
+                      {item.audio && <Audio src={item.audio} />}
                     </Sequence>
                   </AbsoluteFill>
                 </TransitionSeries.Sequence>

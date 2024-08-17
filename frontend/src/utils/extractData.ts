@@ -1,6 +1,9 @@
+import { staticFile } from "remotion";
+
 export async function extractData(): Promise<any> {
+  const url = staticFile("output.json");
   let data;
-  const url = window.remotion_staticFiles[0].src;
+
   await fetch(url)
     .then((res) => res.json())
     .then((json) => {
