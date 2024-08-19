@@ -54,52 +54,58 @@ export const Frame: React.FC = () => {
           {data.map((item: any, index: number) => {
             return (
               <>
-                {index !== 0 && (
-                  <>
-                    <TransitionSeries.Sequence
-                      key={index}
-                      durationInFrames={40}
-                    >
-                      <AbsoluteFill
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(to bottom right, #c7007e, #ffd000)",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      ></AbsoluteFill>
-                    </TransitionSeries.Sequence>
+                {item.text.map((subItem: any, subIndex: number) => {
+                  return (
+                    <>
+                      {subIndex !== 0 && (
+                        <>
+                          <TransitionSeries.Sequence
+                            key={`transition-${index}-${subIndex}`}
+                            durationInFrames={40}
+                          >
+                            <AbsoluteFill
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(to bottom right, #c7007e, #ffd000)",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            ></AbsoluteFill>
+                          </TransitionSeries.Sequence>
 
-                    <TransitionSeries.Transition
-                      presentation={donut({
-                        width: 1920,
-                        height: 1080,
-                      })}
-                      timing={springTiming({
-                        config: {
-                          damping: 200,
-                        },
-                        durationInFrames: 40,
-                        durationRestThreshold: 0.01,
-                      })}
-                    />
-                  </>
-                )}
-                <TransitionSeries.Sequence
-                  key={index}
-                  durationInFrames={(item.duration + 1) * 30}
-                >
-                  <AbsoluteFill style={{ opacity }}>
-                    <Sequence
-                      from={0}
-                      durationInFrames={(item.duration + 1) * 30}
-                    >
-                      <Background backgroundImage={item.image} />
-                      <Subtitle subtitleText={item.text} />
-                      {item.audio && <Audio src={item.audio} />}
-                    </Sequence>
-                  </AbsoluteFill>
-                </TransitionSeries.Sequence>
+                          <TransitionSeries.Transition
+                            presentation={donut({
+                              width: 1920,
+                              height: 1080,
+                            })}
+                            timing={springTiming({
+                              config: {
+                                damping: 200,
+                              },
+                              durationInFrames: 40,
+                              durationRestThreshold: 0.01,
+                            })}
+                          />
+                        </>
+                      )}
+                      <TransitionSeries.Sequence
+                        key={`sequence-${index}-${subIndex}`}
+                        durationInFrames={(subItem.duration + 1) * 30}
+                      >
+                        <AbsoluteFill style={{ opacity }}>
+                          <Sequence
+                            from={0}
+                            durationInFrames={(subItem.duration + 1) * 30}
+                          >
+                            <Background backgroundImage={item.image} />
+                            <Subtitle subtitleText={subItem.text} />
+                            {subItem.audio && <Audio src={subItem.audio} />}
+                          </Sequence>
+                        </AbsoluteFill>
+                      </TransitionSeries.Sequence>
+                    </>
+                  );
+                })}
               </>
             );
           })}
