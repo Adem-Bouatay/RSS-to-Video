@@ -10,7 +10,7 @@ api_key = os.getenv("API_KEY")
 
 
 def main():
-    url = "https://www.purepeople.com/article/gabriel-attal-retrouve-son-ex-aux-jo-de-paris-une-celebre-chanteuse-avec-qui-il-a-garde-une-jolie-proximite-video_a525751/1"
+    url = "https://www.cosmopolitan.fr/robe-quand-il-fait-chaud-le-modele-a-porter-au-travail,2120124.asp?dicbo=v4-Vda3hx9-1081301915-0"
     start_time = time.time()
     html_extractor = HTMLExtractor()
     print("-----------------------------EXTRACTING-HTML-----------------------------")
