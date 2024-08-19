@@ -4,11 +4,10 @@ import {
   Sequence,
   useCurrentFrame,
   useVideoConfig,
-  Audio,
 } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { Background } from "./components/Background";
-import { Subtitle } from "./components/Subtitle";
+import { Subtitles } from "./components/Subtitles";
 import { extractData } from "./utils/extractData";
 import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
@@ -54,58 +53,50 @@ export const Frame: React.FC = () => {
           {data.map((item: any, index: number) => {
             return (
               <>
-                {item.text.map((subItem: any, subIndex: number) => {
-                  return (
+                <>
+                  {index !== 0 && (
                     <>
-                      {subIndex !== 0 && (
-                        <>
-                          <TransitionSeries.Sequence
-                            key={`transition-${index}-${subIndex}`}
-                            durationInFrames={40}
-                          >
-                            <AbsoluteFill
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(to bottom right, #c7007e, #ffd000)",
-                                width: "100%",
-                                height: "100%",
-                              }}
-                            ></AbsoluteFill>
-                          </TransitionSeries.Sequence>
-
-                          <TransitionSeries.Transition
-                            presentation={donut({
-                              width: 1920,
-                              height: 1080,
-                            })}
-                            timing={springTiming({
-                              config: {
-                                damping: 200,
-                              },
-                              durationInFrames: 40,
-                              durationRestThreshold: 0.01,
-                            })}
-                          />
-                        </>
-                      )}
                       <TransitionSeries.Sequence
-                        key={`sequence-${index}-${subIndex}`}
-                        durationInFrames={(subItem.duration + 1) * 30}
+                        key={`transition-${index}`}
+                        durationInFrames={40}
                       >
-                        <AbsoluteFill style={{ opacity }}>
-                          <Sequence
-                            from={0}
-                            durationInFrames={(subItem.duration + 1) * 30}
-                          >
-                            <Background backgroundImage={item.image} />
-                            <Subtitle subtitleText={subItem.text} />
-                            {subItem.audio && <Audio src={subItem.audio} />}
-                          </Sequence>
-                        </AbsoluteFill>
+                        <AbsoluteFill
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(to bottom right, #c7007e, #ffd000)",
+                            width: "100%",
+                            height: "100%",
+                          }}
+                        ></AbsoluteFill>
                       </TransitionSeries.Sequence>
+
+                      <TransitionSeries.Transition
+                        presentation={donut({
+                          width: 1920,
+                          height: 1080,
+                        })}
+                        timing={springTiming({
+                          config: {
+                            damping: 200,
+                          },
+                          durationInFrames: 40,
+                          durationRestThreshold: 0.01,
+                        })}
+                      />
                     </>
-                  );
-                })}
+                  )}
+                  <TransitionSeries.Sequence
+                    key={`sequence-${index}`}
+                    durationInFrames={item.totalDuration * 30}
+                  >
+                    <AbsoluteFill style={{ opacity }}>
+                      <Sequence durationInFrames={item.totalDuration * 30}>
+                        <Background backgroundImage={item.image} />
+                        <Subtitles subtitles={item.text} />
+                      </Sequence>
+                    </AbsoluteFill>
+                  </TransitionSeries.Sequence>
+                </>
               </>
             );
           })}
