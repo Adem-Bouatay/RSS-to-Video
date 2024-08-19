@@ -17,7 +17,6 @@ const title: React.CSSProperties = {
   width: "90%",
 };
 const textStyle: React.CSSProperties = {
-  padding: 25,
   fontFamily: FONT_FAMILY,
   fontWeight: "bold",
   fontSize: 40,
