@@ -54,29 +54,37 @@ export const Frame: React.FC = () => {
           {data.map((item: any, index: number) => {
             return (
               <>
-                <TransitionSeries.Sequence key={index} durationInFrames={40}>
-                  <AbsoluteFill
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(to bottom right, #c7007e, #ffd000)",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  ></AbsoluteFill>
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                  presentation={donut({
-                    width: 1920,
-                    height: 1080,
-                  })}
-                  timing={springTiming({
-                    config: {
-                      damping: 200,
-                    },
-                    durationInFrames: 40,
-                    durationRestThreshold: 0.01,
-                  })}
-                />
+                {index !== 0 && (
+                  <>
+                    <TransitionSeries.Sequence
+                      key={index}
+                      durationInFrames={40}
+                    >
+                      <AbsoluteFill
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(to bottom right, #c7007e, #ffd000)",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      ></AbsoluteFill>
+                    </TransitionSeries.Sequence>
+
+                    <TransitionSeries.Transition
+                      presentation={donut({
+                        width: 1920,
+                        height: 1080,
+                      })}
+                      timing={springTiming({
+                        config: {
+                          damping: 200,
+                        },
+                        durationInFrames: 40,
+                        durationRestThreshold: 0.01,
+                      })}
+                    />
+                  </>
+                )}
                 <TransitionSeries.Sequence
                   key={index}
                   durationInFrames={(item.duration + 1) * 30}

@@ -1,5 +1,5 @@
 import { Composition } from "remotion";
-import { Frame } from "./frame";
+import { Video } from "./Video";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -10,7 +10,7 @@ export const RemotionRoot: React.FC = () => {
         // You can take the "id" to render a video:
         // npx remotion render src/index.ts <id> out/video.mp4
         id="test"
-        component={Frame}
+        component={Video}
         durationInFrames={2880}
         fps={30}
         width={1920}
