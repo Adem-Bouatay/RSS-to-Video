@@ -6,6 +6,7 @@ import requests
 import os
 import time
 from dotenv import load_dotenv
+from TTS.api import TTS
 
 
 load_dotenv()
@@ -36,37 +37,21 @@ class TextToSpeechProcessor:
             image_url = item.get('image')
 
             if paragraph:
-                # Convert the paragraph to speech // Gonna change it to a tts model 
-                """ tts = gTTS(paragraph, lang=self.lang) """
-                audio_filename = os.path.join(self.audio_folder, f"audio_{index + 1}.mpeg")
-                payload = {
-                "text": paragraph,
-                "voice": "s3://voice-cloning-zero-shot/1d26f4fe-1d08-4cfe-a7c1-d28e4e913ff9/original/manifest.json",
-                "output_format": "mp3",
-                "speed":"1",
-                "voice_engine": "PlayHT2.0",
-                "emotion": "female_happy"
+                # Generate the audio file name
+                audio_filename = os.path.join(self.audio_folder, f"audio_{index + 1}.wav")
+                
+                # Convert the paragraph to speech and save to the file
+                self.tts.tts_to_file(
+                    text=paragraph,
+                    file_path=audio_filename,
+                    peaker_wav="test.wav",
+                    language="fr"
+                )
 
-            }
-                headers = {
-                    "accept": "audio/mpeg", #application/json if i want to get the url
-                    "content-type": "application/json",
-                    "AUTHORIZATION":HT_API_KEY,
-                    "X-USER-ID":HT_ID
-                }
-                response = requests.post(self.apiUrl, json=payload, headers=headers)
-                #in case i want to save the url
-                """     res = response.json()
-                audio_url = res.get('href')
-                rel = res.get('rel')
-                print(rel) """
-                with open(audio_filename, 'wb') as f:
-                        f.write(response.content)
- 
                 # Add the audio file path to the item
-            item['audio'] = audio_filename
-            
-            print(f"Saved audio file: {audio_filename}")
+                item['audio'] = audio_filename
+                
+                print(f"Saved audio file: {audio_filename}")
             
 
     def save_data(self):
