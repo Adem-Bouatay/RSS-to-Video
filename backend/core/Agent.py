@@ -10,6 +10,7 @@ PROMPT = """
             "if the length of the paraphraph greater than 170 characters including white spaces then split it into 2 sub paragraphs"
             "each 170 characters of a paraphraph put it in sub paragraph"
             "image should be an object for the paraphraph not sub paragraph"
+            "text should be an array of strings"
                 ```json
                         [
             {
