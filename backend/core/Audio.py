@@ -40,7 +40,7 @@ class TextToSpeechProcessor:
                 duration =self.get_audio_duration(audio_path)
                 paragraph[i] = {'text': text, 'audio': audio_path,'duration':round(duration)}
                 total_paragraph_duration=total_paragraph_duration+duration
-            item['total_duration'] =round(total_paragraph_duration )
+            item['totalDuration'] =round(total_paragraph_duration )
 
                 
                 
