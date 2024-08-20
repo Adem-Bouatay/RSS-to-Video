@@ -1,7 +1,6 @@
 import google.generativeai as genai
 from core.Extractor import JSONExtractor
 import time
-import os
 
 PROMPT = """
             "As an expert in analyzing articles for speech synthesis, your task is to extract and structure the text of the article. REMOVE ALL  the HTML BALISES like href or <a> or anything start with < , i want it to be only Text to read like News and make sure each picture is related to the context of its paraphraph"
@@ -46,30 +45,17 @@ PROMPT = """
 
 class Agent:
     def __init__(self, api_key):
-        genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
-        self.llm = Gemini(
-        model_name="models/gemini-1.5-flash",
-        api_key=api_key,
-        callback_manager=self.callback_manager,
-        )
+        genai.configure(api_key=api_key)
+        self.llm = genai.GenerativeModel('gemini-1.5-flash')
+
 
     def extract_content(self, html_content):
         start = time.time()
-        response = self.llm.complete(prompt=PROMPT + html_content)
+        response = self.llm.generate_content(PROMPT + html_content).text
         end = time.time()
         print("Time taken: ", int(end-start),"sec \n" ,"Response generated!!","\n----------------------------------------------------------\n")
         print("AGENT RES : ",response,"----------------------------------------------------------\n",sep="\n")
-        print(
-            "Embedding Tokens: ",
-            self.token_counter.total_embedding_token_count,
-            "\nLLM Prompt Tokens: ",
-            self.token_counter.prompt_llm_token_count,
-            "\nLLM Completion Tokens: ",
-            self.token_counter.completion_llm_token_count,
-            "\nTotal LLM Token Count: ",
-            self.token_counter.total_llm_token_count,
-            "\n",
-        )
+        print(self.llm.count_tokens(PROMPT + html_content))
         with open("output.json", "w", encoding="utf-8") as file:
             json = JSONExtractor().extract(f"{response}")
             file.write(json)

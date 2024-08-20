@@ -7,7 +7,7 @@ class TextToSpeechProcessor:
         self.input_json_path = input_json_path
         self.output_json_path = output_json_path
         self.audio_folder = audio_folder
-        self.samples = ["test.wav"]
+        self.samples = [f"{samples_path}/{i}" for i in os.listdir(samples_path)]
         self.lang = lang
         self.tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
         
@@ -25,10 +25,11 @@ class TextToSpeechProcessor:
         """Convert text in JSON data to speech and update the data with audio paths."""
         for index, item in enumerate(self.data):
             paragraph = item.get('text')
-            print(os.listdir)
-
-            
-
+            for i, text in enumerate(paragraph):
+                audio_path = os.path.join(self.audio_folder, f'audio_{index+1}_{i+1}.wav')
+                self.tts.tts_to_file(text=text, file_path=audio_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
+                paragraph[i] = {'text': text, 'audio': audio_path}
+                
     def save_data(self):
         """Save the updated JSON data to the output file."""
         with open(self.output_json_path, 'w',encoding='utf-8') as file:
