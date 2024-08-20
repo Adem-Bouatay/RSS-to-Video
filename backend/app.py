@@ -22,7 +22,7 @@ def main():
     agent = Agent(api_key=api_key)
     agent_res = agent.extract_content(html_content=html_content)
     DemoOutput().generate_html_page(content=agent_res)
-    tts = TextToSpeechProcessor(input_json_path="output.json", output_json_path="output_with_audio.json", samples_path="/samples", audio_folder='audio', lang='fr')
+    tts = TextToSpeechProcessor(input_json_path="output.json", output_json_path="output_with_audio.json", samples_path="samples", audio_folder='audio', lang='fr')
     tts.process()
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")

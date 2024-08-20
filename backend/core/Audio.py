@@ -1,7 +1,7 @@
 import json
 import os
 from TTS.api import TTS
-
+import wave
 class TextToSpeechProcessor:
     def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr'):
         self.input_json_path = input_json_path
@@ -21,14 +21,28 @@ class TextToSpeechProcessor:
         """Create the audio folder if it doesn't exist."""
         os.makedirs(self.audio_folder, exist_ok=True)
 
+    def get_audio_duration(self, file_path):
+        """Get the duration of a WAV file in seconds."""
+        with wave.open(file_path, 'rb') as wav_file:
+            frames = wav_file.getnframes()
+            rate = wav_file.getframerate()
+            duration = frames / float(rate)
+        return duration
     def convert_text_to_speech(self):
         """Convert text in JSON data to speech and update the data with audio paths."""
+        
         for index, item in enumerate(self.data):
+            total_paragraph_duration=0
             paragraph = item.get('text')
             for i, text in enumerate(paragraph):
                 audio_path = os.path.join(self.audio_folder, f'audio_{index+1}_{i+1}.wav')
                 self.tts.tts_to_file(text=text, file_path=audio_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
-                paragraph[i] = {'text': text, 'audio': audio_path}
+                duration =self.get_audio_duration(audio_path)
+                paragraph[i] = {'text': text, 'audio': audio_path,'duration':round(duration)}
+                total_paragraph_duration=total_paragraph_duration+duration
+            item['total_duration'] =round(total_paragraph_duration )
+
+                
                 
     def save_data(self):
         """Save the updated JSON data to the output file."""
