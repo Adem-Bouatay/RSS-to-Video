@@ -1,9 +1,7 @@
-import tiktoken
-from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
-from llama_index.llms.gemini import Gemini
+import google.generativeai as genai
 from core.Extractor import JSONExtractor
 import time
-from core.Audio import TextToSpeechProcessor
+import os
 
 PROMPT = """
             "As an expert in analyzing articles for speech synthesis, your task is to extract and structure the text of the article. REMOVE ALL  the HTML BALISES like href or <a> or anything start with < , i want it to be only Text to read like News and make sure each picture is related to the context of its paraphraph"
@@ -48,10 +46,7 @@ PROMPT = """
 
 class Agent:
     def __init__(self, api_key):
-        self.token_counter = TokenCountingHandler(tokenizer=tiktoken.encoding_for_model("gpt-4").encode)
-        self.token_counter.reset_counts()
-        self.callback_manager = CallbackManager([self.token_counter])
-    
+        genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
         self.llm = Gemini(
         model_name="models/gemini-1.5-flash",
         api_key=api_key,
