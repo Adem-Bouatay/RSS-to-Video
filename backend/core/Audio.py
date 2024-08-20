@@ -26,7 +26,7 @@ class TextToSpeechProcessor:
         for index, item in enumerate(self.data):
             paragraph = item.get('text')
             for i, text in enumerate(paragraph):
-                audio_path = os.path.join(self.audio_folder, f'audio_{index+1}_{i+1}.wav')
+                audio_path = os.path.join(self.audio_folder, f'audio{index+1}_{i+1}.wav')
                 self.tts.tts_to_file(text=text, file_path=audio_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
                 paragraph[i] = {'text': text, 'audio': audio_path}
                 
