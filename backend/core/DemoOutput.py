@@ -1,29 +1,11 @@
-import re
 import json
+from core.Extractor import JSONExtractor
 
 
 class DemoOutput:
     def __init__(self):
         self._output = []
-
-    def extract(self, input_text: str) -> str:
-        """
-        Extracts JSON content from a given input text.
-
-        Args:
-            input_text (str): The input text containing JSON content.
-
-        Returns:
-            str: The extracted JSON content, or None if no JSON content is found.
-        """
-        pattern = r"```json(.*?)```"
-
-        match = re.search(pattern, input_text, re.DOTALL)
-
-        if match:
-            return match.group(1).strip()
-        else:
-            raise ("No JSON content found in the input text.")
+        self.extract = JSONExtractor().extract
 
     def generate_html_page(self, content: str) -> None:
         extracted_content = self.extract(content)

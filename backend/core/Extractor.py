@@ -1,5 +1,6 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import re
 
 
 class HTMLExtractor:
@@ -79,3 +80,23 @@ class HTMLExtractor:
         self.driver.quit()
 
         return html_content
+
+class JSONExtractor:
+    def extract(self, input_text: str) -> str:
+        """
+        Extracts JSON content from a given input text.
+
+        Args:
+            input_text (str): The input text containing JSON content.
+
+        Returns:
+            str: The extracted JSON content, or None if no JSON content is found.
+        """
+        pattern = r"```json(.*?)```"
+
+        match = re.search(pattern, input_text, re.DOTALL)
+
+        if match:
+            return match.group(1).strip()
+        else:
+            raise ("No JSON content found in the input text.")

@@ -1,24 +1,14 @@
 import json
-from gtts import gTTS
-from pyht import Client, TTSOptions, Format
 import os
-import requests
-import os
-import time
-from dotenv import load_dotenv
 from TTS.api import TTS
 
-
-load_dotenv()
-HT_ID = os.getenv("HT_ID")
-HT_API_KEY=os.getenv("HT_API_KEY")
 class TextToSpeechProcessor:
     def __init__(self, input_json_path, output_json_path, audio_folder='audio', lang='fr'):
         self.input_json_path = input_json_path
         self.output_json_path = output_json_path
         self.audio_folder = audio_folder
         self.lang = lang
-        self.apiUrl="https://api.play.ht/api/v2/tts/stream"
+        self.tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
         
 
     def load_data(self):
@@ -33,9 +23,9 @@ class TextToSpeechProcessor:
     def convert_text_to_speech(self):
         """Convert text in JSON data to speech and update the data with audio paths."""
         for index, item in enumerate(self.data):
+            
             paragraph = item.get('text')
-            image_url = item.get('image')
-
+            print(paragraph)
             if paragraph:
                 # Generate the audio file name
                 audio_filename = os.path.join(self.audio_folder, f"audio_{index + 1}.wav")
@@ -44,7 +34,7 @@ class TextToSpeechProcessor:
                 self.tts.tts_to_file(
                     text=paragraph,
                     file_path=audio_filename,
-                    peaker_wav="test.wav",
+                    speaker_wav=["samples/sample1.wav"],
                     language="fr"
                 )
 

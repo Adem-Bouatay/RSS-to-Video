@@ -1,8 +1,7 @@
 import tiktoken
 from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
-from llama_index.llms.openai import OpenAI
 from llama_index.llms.gemini import Gemini
-from core.DemoOutput import DemoOutput
+from core.Extractor import JSONExtractor
 import time
 from core.Audio import TextToSpeechProcessor
 
@@ -58,17 +57,13 @@ class Agent:
         api_key=api_key,
         callback_manager=self.callback_manager,
         )
-    
-        self.tts = TextToSpeechProcessor(input_json_path='./output.json', output_json_path="./output_audio.json")
-
 
     def extract_content(self, html_content):
-        
         start = time.time()
         response = self.llm.complete(prompt=PROMPT + html_content)
         end = time.time()
         print("Time taken: ", int(end-start),"sec \n" ,"Response generated!!","\n----------------------------------------------------------\n")
-        print(response, "\n----------------------------------------------------------\n")
+        print("AGENT RES : ",response,"----------------------------------------------------------\n",sep="\n")
         print(
             "Embedding Tokens: ",
             self.token_counter.total_embedding_token_count,
@@ -81,8 +76,7 @@ class Agent:
             "\n",
         )
         with open("output.json", "w", encoding="utf-8") as file:
-            json = DemoOutput().extract(f"{response}")
+            json = JSONExtractor().extract(f"{response}")
             file.write(json)
-        """ self.tts.process()  # Process audio conversion and save to output_audio.json """
-        print("AGENT RES : ", response)
+            
         return f"{response}"
