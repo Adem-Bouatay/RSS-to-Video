@@ -3,78 +3,78 @@
         "text": [
             {
                 "text": "Vivre une période canicule quand on est en vacances, c'est une chose. Mais la subir alors qu'on doit travailler, ça en est une autre.",
-                "audio": "audio/audio_1_1.wav",
-                "duration": 7.649333333333334
+                "audio": "audio\\audio1_1.wav",
+                "duration": 7
             },
             {
                 "text": " Pour toutes celles qui doivent cumuler bureau et chaleurs extrêmes, la question du look à arborer face à de telles températures est sans doute survenue à plusieurs reprises.",
-                "audio": "audio/audio_1_2.wav",
-                "duration": 11.691333333333333
+                "audio": "audio\\audio1_2.wav",
+                "duration": 10
             },
             {
-                "text": " Comment rester chic et bien habillée même quand le thermomètre affiche 30+ degrés ?",
-                "audio": "audio/audio_1_3.wav",
-                "duration": 5.334
-            },
-            {
-                "text": " La réponse prend la forme d'une petite robe courte en lin repérée dans la nouvelle collection &Other Stories.",
-                "audio": "audio/audio_1_4.wav",
-                "duration": 6.080666666666667
+                "text": " Comment rester chic et bien habillée même quand le thermomètre affiche 30+ degrés ? La réponse prend la forme d'une petite robe courte en lin repérée dans la nouvelle collection &Other Stories.",
+                "audio": "audio\\audio1_3.wav",
+                "duration": 11
             }
         ],
         "image": "https://cache.cosmopolitan.fr/data/photo/w1000_ci/6v/robe-quand-il-fait-chaud-travail.jpg",
-        "total_duration": 30
+        "total_duration": 28
     },
     {
         "text": [
             {
-                "text": "Il faut dire que le lin est l'allié mode des journées caniculaires. Avec lui, la peau respire et les options de looks sont nombreuses, entre la chemise et le short assorti, la robe longue ou courte, la jupe mini ou midi, la combinaison pantalon ou short...",
-                "audio": "audio/audio_2_1.wav",
-                "duration": 14.561333333333334
+                "text": "Il faut dire que le lin est l'allié mode des journées caniculaires.",
+                "audio": "audio\\audio2_1.wav",
+                "duration": 3
             },
             {
-                "text": "Mais la forme que l'on préfère pour un look de bureau quand il fait chaud est sans conteste la robe courte en lin à fines bretelles et de coupe trapèze.",
-                "audio": "audio/audio_2_2.wav",
-                "duration": 8.032666666666668
+                "text": " Avec lui, la peau respire et les options de looks sont nombreuses, entre la chemise et le short assorti, la robe longue ou courte, la jupe mini ou midi, la combinaison pantalon ou short...",
+                "audio": "audio\\audio2_2.wav",
+                "duration": 12
+            },
+            {
+                "text": " Mais la forme que l'on préfère pour un look de bureau quand il fait chaud est sans conteste la robe courte en lin à fines bretelles et de coupe trapèze.",
+                "audio": "audio\\audio2_3.wav",
+                "duration": 8
             },
             {
                 "text": " Cette forme évasée a l'avantage de convenir à toutes les morphologies, mais aussi de laisser l'air circuler.",
-                "audio": "audio/audio_2_3.wav",
-                "duration": 6.262
+                "audio": "audio\\audio2_4.wav",
+                "duration": 5
             },
             {
                 "text": " Un atout de taille en période de fortes chaleurs.",
-                "audio": "audio/audio_2_4.wav",
-                "duration": 3.9366666666666665
+                "audio": "audio\\audio2_5.wav",
+                "duration": 3
             }
         ],
         "image": "https://cache.cosmopolitan.fr/data/photo/w680_ci/6v/robe-quand-il-fait-chaud-1.jpg",
-        "total_duration": 32
+        "total_duration": 31
     },
     {
         "text": [
             {
                 "text": "Pour vaincre les fortes chaleurs sans perdre un degré de style, la clé est d'éviter l'accumulation.",
-                "audio": "audio/audio_3_1.wav",
-                "duration": 6.678
+                "audio": "audio\\audio3_1.wav",
+                "duration": 6
             },
             {
                 "text": " Que cela soit au niveau des vêtements ou des accessoires.",
-                "audio": "audio/audio_3_2.wav",
-                "duration": 2.731333333333333
+                "audio": "audio\\audio3_2.wav",
+                "duration": 5
             },
             {
-                "text": "On s'en tient au strict minimum et pour cela, on mise sur des pièces mode qui se suffisent à elles-mêmes.",
-                "audio": "audio/audio_3_3.wav",
-                "duration": 5.376666666666667
+                "text": " On s'en tient au strict minimum et pour cela, on mise sur des pièces mode qui se suffisent à elles-mêmes.",
+                "audio": "audio\\audio3_3.wav",
+                "duration": 6
             },
             {
                 "text": " Outre la petite robe trapèze aussi à l'aise en journée qu'en soirée, on peut aussi se tourner vers le pantalon large agréable à porter ou encore la jupe portefeuille, flatteuse pour la silhouette.",
-                "audio": "audio/audio_3_4.wav",
-                "duration": 10.027333333333333
+                "audio": "audio\\audio3_4.wav",
+                "duration": 10
             }
         ],
         "image": "https://cache.cosmopolitan.fr/data/photo/w500_h250_ci/6w/robe-quand-il-fait-chaud.webp",
-        "total_duration": 24
+        "total_duration": 27
     }
 ]

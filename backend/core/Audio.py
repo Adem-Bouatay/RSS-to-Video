@@ -27,7 +27,7 @@ class TextToSpeechProcessor:
             frames = wav_file.getnframes()
             rate = wav_file.getframerate()
             duration = frames / float(rate)
-        return duration
+        return round(duration)
     def convert_text_to_speech(self):
         """Convert text in JSON data to speech and update the data with audio paths."""
         
@@ -38,7 +38,7 @@ class TextToSpeechProcessor:
                 audio_path = os.path.join(self.audio_folder, f'audio{index+1}_{i+1}.wav')
                 self.tts.tts_to_file(text=text, file_path=audio_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
                 duration =self.get_audio_duration(audio_path)
-                paragraph[i] = {'text': text, 'audio': audio_path,'duration':round(duration)}
+                paragraph[i] = {'text': text, 'audio': audio_path,'duration':duration}
                 total_paragraph_duration=total_paragraph_duration+duration
             item['total_duration'] =round(total_paragraph_duration )
 
