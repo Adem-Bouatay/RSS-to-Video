@@ -11,7 +11,7 @@ api_key = os.getenv("API_KEY")
 
 
 def main():
-    url = "https://www.cosmopolitan.fr/robe-quand-il-fait-chaud-le-modele-a-porter-au-travail,2120124.asp?dicbo=v4-Vda3hx9-1081301915-0"
+    url = "https://www.nato.int/cps/en/natohq/news_228331.htm#:~:text=The%20State%20Emergency%20Service%20of,Atlantic%20Disaster%20Response%20Coordination%20Centre."
     
     start_time = time.time()
     
