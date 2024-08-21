@@ -28,7 +28,7 @@ def main():
                                 audio_folder='audio', 
                                 lang='fr'
                                 )
-    """ tts.process() """
+    tts.process()
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
 
