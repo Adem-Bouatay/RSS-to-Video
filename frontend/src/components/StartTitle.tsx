@@ -10,7 +10,6 @@ const { fontFamily } = loadFont();
 
 export const StartTitle = ({ title }: { title: string }) => {
   const characters = title.split("");
-  console.log(characters);
   const videoConfig = useVideoConfig();
   const frame = useCurrentFrame();
   return (

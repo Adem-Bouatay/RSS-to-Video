@@ -3,6 +3,7 @@ import { spring, Audio, useCurrentFrame, useVideoConfig } from "remotion";
 import { linearTiming, TransitionSeries } from "@remotion/transitions";
 import { slide } from "@remotion/transitions/slide";
 import { FONT_FAMILY } from "./constants";
+import { publicFolderPath } from "../utils/extractData";
 
 const title: React.CSSProperties = {
   position: "absolute",
@@ -39,6 +40,7 @@ export const Subtitles: React.FC<{
     return text.split(" ");
   };
 
+  console.log(publicFolderPath);
   return (
     <div style={title}>
       <TransitionSeries>
@@ -72,7 +74,9 @@ export const Subtitles: React.FC<{
                 );
               })}
             </h1>
-            {subItem.audio && <Audio src={subItem.audio} />}
+            {subItem.audio && (
+              <Audio src={`/${publicFolderPath}/${subItem.audio}`} />
+            )}
           </TransitionSeries.Sequence>
         ))}
         <TransitionSeries.Transition

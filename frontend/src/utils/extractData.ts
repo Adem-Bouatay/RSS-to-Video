@@ -12,3 +12,5 @@ export async function extractData(): Promise<any> {
     .catch((e) => console.error(e));
   return data;
 }
+
+export const publicFolderPath = staticFile("audio").split("/")[1];
