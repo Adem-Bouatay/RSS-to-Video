@@ -3,13 +3,14 @@ import os
 from TTS.api import TTS
 import wave
 class TextToSpeechProcessor:
-    def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr'):
+    def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr',base_url='http://127.0.0.1:5000/'):
         self.input_json_path = input_json_path
         self.output_json_path = output_json_path
         self.audio_folder = audio_folder
         self.samples = [f"{samples_path}/{i}" for i in os.listdir(samples_path)]
         self.lang = lang
         self.tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
+        self.base_url = base_url.rstrip('/') 
         
 
     def load_data(self):
@@ -29,18 +30,22 @@ class TextToSpeechProcessor:
             duration = frames / float(rate)
         return round(duration)
     def convert_text_to_speech(self):
-        """Convert text in JSON data to speech and update the data with audio paths."""
-        
         for index, item in enumerate(self.data):
-            total_paragraph_duration=0
+            total_paragraph_duration = 0
             paragraph = item.get('text')
             for i, text in enumerate(paragraph):
-                audio_path = os.path.join(self.audio_folder, f'audio{index+1}_{i+1}.wav')
-                self.tts.tts_to_file(text=text, file_path=audio_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
-                duration =self.get_audio_duration(audio_path)
-                paragraph[i] = {'text': text, 'audio': audio_path,'duration':duration}
-                total_paragraph_duration=total_paragraph_duration+duration
-            item['totalDuration'] =round(total_paragraph_duration )
+                audio_filename = f'audio{index+1}_{i+1}.wav'
+                audio_file_path = os.path.join(self.audio_folder, audio_filename)
+                self.tts.tts_to_file(text=text, file_path=audio_file_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
+                
+                # Construct the accessible URL for the audio file
+                audio_url = f"{self.base_url}/audio/{audio_filename}"
+                
+                duration = self.get_audio_duration(audio_file_path)
+                paragraph[i] = {'text': text, 'audio': audio_url, 'duration': duration}
+                total_paragraph_duration += duration
+            
+            item['totalDuration'] = round(total_paragraph_duration)
 
                 
                 
@@ -54,6 +59,7 @@ class TextToSpeechProcessor:
         self.load_data()
         self.create_audio_folder()
         self.convert_text_to_speech()
+
         self.save_data()
         print(f"All audio files have been created and the updated data has been saved to '{self.output_json_path}'.")
 

@@ -5,13 +5,12 @@ from core.Audio import TextToSpeechProcessor
 from dotenv import load_dotenv
 import os
 import time
-
+import json
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
 
-def main():
-    url = "https://www.nato.int/cps/en/natohq/news_228331.htm#:~:text=The%20State%20Emergency%20Service%20of,Atlantic%20Disaster%20Response%20Coordination%20Centre."
+def run(url):
     
     start_time = time.time()
     
@@ -31,7 +30,10 @@ def main():
     tts.process()
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
+        # Read and return the content of output.json
+    with open('output_with_audio.json', 'r') as file:
+        output_data = json.load(file)
+    
+    return output_data
 
 
-if __name__ == "__main__":
-    main()
