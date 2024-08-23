@@ -1,8 +1,9 @@
-import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { interpolate, Audio, useCurrentFrame, useVideoConfig } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { donut } from "./presentations/CirclePresentation";
 import { Frame } from "./frame";
 import { StartTitle } from "./components/StartTitle";
+import { publicFolderPath } from "./utils/extractData";
 
 export const Video: React.FC = () => {
   const frame = useCurrentFrame();
@@ -45,6 +46,7 @@ export const Video: React.FC = () => {
           <Frame />
         </TransitionSeries.Sequence>
       </TransitionSeries>
+      <Audio src={`${publicFolderPath}/BackgroundMusic.mp3`} />
     </>
   );
 };

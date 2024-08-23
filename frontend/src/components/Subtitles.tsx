@@ -1,27 +1,29 @@
 import React from "react";
 import { spring, Audio, useCurrentFrame, useVideoConfig } from "remotion";
-import { linearTiming, TransitionSeries } from "@remotion/transitions";
-import { slide } from "@remotion/transitions/slide";
+import { TransitionSeries } from "@remotion/transitions";
 import { FONT_FAMILY } from "./constants";
-import { publicFolderPath } from "../utils/extractData";
 
-const title: React.CSSProperties = {
-  position: "absolute",
-  left: "0px",
-  right: "0px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  backgroundColor: "#000000",
-  border: "0.5px solid #fff",
-  bottom: 50,
-  height: "17%",
-  width: "90%",
+const container: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "end",
+  width: "100%",
+  paddingBottom: 80,
+  justifyContent: "center",
 };
 const textStyle: React.CSSProperties = {
   fontFamily: FONT_FAMILY,
+  padding: 40,
+  backgroundColor: "rgba(0,0,0,.9)",
+  border: "1px solid #fff",
+  width: "95%",
   fontWeight: "bold",
   fontSize: 40,
-  textAlign: "justify",
+  display: "block",
+  flexWrap: "wrap",
+  alignItems: "center",
+  textAlign: "left",
+  textJustify: "inter-word",
 };
 
 const word: React.CSSProperties = {
@@ -40,50 +42,42 @@ export const Subtitles: React.FC<{
     return text.split(" ");
   };
 
-  console.log(publicFolderPath);
   return (
-    <div style={title}>
-      <TransitionSeries>
-        {subtitles.map((subItem: any, subIndex: number) => (
-          <TransitionSeries.Sequence
-            key={`sub-sequence-${subIndex}`}
-            durationInFrames={subItem.duration * 30 + 25}
-          >
-            <h1 style={textStyle}>
-              {textToWords(subItem.text).map((_word: String, i: number) => {
-                const delay = i * 2;
-                const scale = spring({
-                  fps: videoConfig.fps,
-                  frame: frame - delay,
-                  config: {
-                    damping: 100,
-                  },
-                });
+    <TransitionSeries>
+      {subtitles.map((subItem: any, subIndex: number) => (
+        <TransitionSeries.Sequence
+          key={`sub-sequence-${subIndex}`}
+          durationInFrames={subItem.duration * 30 + 30}
+          style={container}
+        >
+          <h1 style={textStyle}>
+            {textToWords(subItem.text).map((_word: String, i: number) => {
+              const delay = i * 2;
+              const scale = spring({
+                fps: videoConfig.fps,
+                frame: frame - delay,
+                config: {
+                  damping: 100,
+                },
+              });
 
-                return (
-                  <span
-                    key={i}
-                    style={{
-                      ...word,
-                      color: "#fff",
-                      opacity: scale,
-                    }}
-                  >
-                    {_word}
-                  </span>
-                );
-              })}
-            </h1>
-            {subItem.audio && (
-              <Audio src={`/${publicFolderPath}/${subItem.audio}`} />
-            )}
-          </TransitionSeries.Sequence>
-        ))}
-        <TransitionSeries.Transition
-          presentation={slide()}
-          timing={linearTiming({ durationInFrames: 30 })}
-        />
-      </TransitionSeries>
-    </div>
+              return (
+                <span
+                  key={i}
+                  style={{
+                    ...word,
+                    color: "#fff",
+                    opacity: scale,
+                  }}
+                >
+                  {_word}
+                </span>
+              );
+            })}
+          </h1>
+          {/*subItem.audio && <Audio src={`${subItem.audio}`} />*/}
+        </TransitionSeries.Sequence>
+      ))}
+    </TransitionSeries>
   );
 };
