@@ -25,7 +25,8 @@ def run(url):
                                 output_json_path="output_with_audio.json", 
                                 samples_path="samples", 
                                 audio_folder='audio', 
-                                lang='fr'
+                                lang='fr',
+                                voice_gender="male"
                                 )
     tts.process()
     end_time = time.time()
