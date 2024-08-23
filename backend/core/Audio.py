@@ -3,14 +3,15 @@ import os
 from TTS.api import TTS
 import wave
 class TextToSpeechProcessor:
-    def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr',base_url='http://127.0.0.1:5000/'):
+    def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr',voice_gender="male",base_url='http://127.0.0.1:5000/'):
         self.input_json_path = input_json_path
         self.output_json_path = output_json_path
         self.audio_folder = audio_folder
-        self.samples = [f"{samples_path}/{i}" for i in os.listdir(samples_path)]
+        self.samples = [os.path.join(samples_path, f"{voice_gender}.wav")]
         self.lang = lang
         self.tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
         self.base_url = base_url.rstrip('/') 
+        self.voice_gender=voice_gender
         
 
     def load_data(self):
