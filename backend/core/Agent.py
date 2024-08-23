@@ -15,31 +15,55 @@ PROMPT = """
             "when the image Url path is static then change it to absolute"
             "text should be an array of strings"
                 ```json
-                        [
-            {
-                "text": [
-                "Vivre une période canicule quand on est en vacances, c'est une chose. Mais la subir alors qu'on doit travailler, ça en est une autre.",
-                " Pour toutes celles qui doivent cumuler bureau et chaleurs extrêmes, la question du look à arborer face à de telles températures est sans doute survenue à plusieurs reprises. Comment rester chic et bien habillée même quand le thermomètre affiche 30+ degrés ? La réponse prend la forme d'une petite robe courte en lin repérée dans la nouvelle collection."
-                ],
-                "image": "https://cache.cosmopolitan.fr/data/photo/w1000_ci/6v/robe-quand-il-fait-chaud-travail.jpg"
-            },
-            {
-                "text": [
-                "Il faut dire que le lin est l'allié mode des journées caniculaires. Avec lui, la peau respire et les options de looks sont nombreuses,entre la chemise et le short assorti, la robe longue ou courte, la jupe mini ou midi, la combinaison pantalon ou short...",
-                "Mais la forme que l'on préfère pour un look de bureau quand il fait chaud est sans conteste la robe courte en lin à fines bretelles et de coupe trapèze. Cette forme évasée a l'avantage de convenir à toutes les morphologies, mais aussi de laisser l'air circuler. Un atout de taille en période de fortes chaleurs."
-                ],
-                "image": "https://cache.cosmopolitan.fr/data/photo/w680_ci/6v/robe-quand-il-fait-chaud-1.jpg"
-            },
-            {
-                "text": [
-                "Pour vaincre les fortes chaleurs sans perdre un degré de style, la clé est d'éviter l'accumulation. Que cela soit au niveau des vêtements ou des accessoires.",
-                "On s'en tient au strict minimum et pour cela, on mise sur des pièces mode qui se suffisent à elles-mêmes. Outre la petite robe trapèze aussi à l'aise en journée qu'en soirée, on peut aussi se tourner vers le pantalon large agréable à porter ou encore la jupe portefeuille, flatteuse pour la silhouette."
-                ],
-                "image": "https://cache.cosmopolitan.fr/data/photo/w500_h250_ci/6w/robe-quand-il-fait-chaud.webp"
-            }
-            ]
-    
-
+                     [
+                        {
+                            "text": [
+                                "Le lin est un tissu de choix pour les journées chaudes, car il permet à la peau de respirer et offre de nombreuses options de vêtements. Que vous optiez pour une chemise, un short assorti, une robe longue ou courte, une jupe mini ou midi, ou une combinaison, le lin reste un excellent choix pour affronter la chaleur tout en restant stylé.",
+                                "En période de fortes chaleurs, la robe courte en lin à fines bretelles et à coupe trapèze est idéale pour le bureau. Sa coupe évasée convient à toutes les morphologies et permet à l'air de circuler, offrant ainsi un confort maximal même lors des journées les plus chaudes."
+                            ],
+                            "image": "https://cache.cosmopolitan.fr/data/photo/w680_ci/6v/robe-quand-il-fait-chaud-1.jpg"
+                        },
+                        {
+                            "text": [
+                                "Pour éviter de perdre un degré de style en période de chaleur intense, il est important de limiter l'accumulation de vêtements et d'accessoires. Optez pour des pièces qui se suffisent à elles-mêmes, comme une petite robe trapèze, qui est à l'aise en journée comme en soirée, ou un pantalon large confortable et une jupe portefeuille flatteuse pour la silhouette.",
+                                "Vivre une canicule pendant les vacances est une chose, mais le faire tout en travaillant est une autre. Pour celles qui doivent jongler entre bureau et chaleur extrême, le choix des vêtements devient crucial. Une robe courte en lin de la nouvelle collection pourrait bien être la solution idéale pour rester chic et bien habillée même par 30+ degrés."
+                            ],
+                            "image": "https://cache.cosmopolitan.fr/data/photo/w1000_ci/6v/robe-quand-il-fait-chaud-travail.jpg"
+                        },
+                        {
+                            "text": [
+                                "Quand le thermomètre affiche des températures élevées, le lin se révèle être un allié mode de choix. Avec sa capacité à laisser respirer la peau, il permet de créer divers looks adaptés à la chaleur, qu'il s'agisse de chemises, de shorts, de robes, de jupes ou de combinaisons. La clé pour un style réussi pendant une canicule est de choisir des vêtements légers et aérés qui permettent de rester à l'aise tout au long de la journée.",
+                                "Pour toutes celles qui doivent concilier bureau et chaleur extrême, il est important de rester chic tout en étant confortable. Optez pour des vêtements qui offrent une bonne circulation de l'air et évitez les couches superflues. Une robe courte en lin, par exemple, combine élégance et confort, parfaite pour affronter les températures élevées au travail ou en dehors."
+                            ],
+                            "image": "https://cache.cosmopolitan.fr/data/photo/w500_h250_ci/6w/robe-quand-il-fait-chaud.webp"
+                        }
+                    ]
+                ```
+                example 2:
+                ```json
+                     [
+                        {
+                            "text": [
+                                "La clé pour une alimentation saine est d'incorporer une variété d'aliments riches en nutriments. Les légumes frais, les fruits de saison, les grains entiers et les protéines maigres sont des éléments essentiels à inclure dans vos repas quotidiens. De plus, boire suffisamment d'eau et limiter la consommation de sucre et de graisses saturées peut grandement contribuer à votre bien-être général.",
+                                "Pour une alimentation équilibrée, essayez de préparer vos repas à l'avance et d'inclure des portions appropriées de chaque groupe alimentaire. Utilisez des méthodes de cuisson saines comme la vapeur, la grillade ou la cuisson au four pour préserver les nutriments et réduire l'ajout de graisses inutiles."
+                            ],
+                            "image": "https://example.com/images/healthy-eating.jpg"
+                        },
+                        {
+                            "text": [
+                                "En suivant un régime équilibré, vous pouvez non seulement améliorer votre santé physique, mais aussi votre bien-être mental. L'alimentation joue un rôle crucial dans la gestion de l'humeur et l'énergie au quotidien. Les vitamines, minéraux et antioxydants présents dans une alimentation variée peuvent aider à réduire le stress et augmenter la concentration.",
+                                "Un bon point de départ est de planifier vos repas et collations pour éviter les choix alimentaires impulsifs. Optez pour des aliments frais et minimisez les produits transformés qui contiennent souvent des quantités élevées de sucre, de sel et de conservateurs."
+                            ],
+                            "image": "https://example.com/images/meal-prep.jpg"
+                        },
+                        {
+                            "text": [
+                                "Pour maintenir une alimentation saine, il est important de se fixer des objectifs réalistes et de faire preuve de flexibilité. Introduisez progressivement des changements dans votre alimentation pour que ceux-ci deviennent des habitudes durables. De plus, il est crucial de faire attention aux signaux de faim et de satiété de votre corps, afin de manger en pleine conscience.",
+                                "N'oubliez pas que la santé alimentaire est un équilibre entre plaisir et nutrition. Profitez de vos repas et apprenez à savourer des aliments sains tout en vous accordant des petits plaisirs de temps en temps."
+                            ],
+                            "image": "https://example.com/images/mindful-eating.jpg"
+                        }
+                    ]
                 ```
             "
             "Keep the text in its original French language."
@@ -50,7 +74,7 @@ PROMPT = """
 class Agent:
     def __init__(self, api_key):
         genai.configure(api_key=api_key)
-        self.llm = genai.GenerativeModel('gemini-1.5-flash')
+        self.llm = genai.GenerativeModel('gemini-1.5-pro')
 
 
     def extract_content(self, html_content):
