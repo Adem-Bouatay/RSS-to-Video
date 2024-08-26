@@ -2,204 +2,33 @@
     {
         "text": [
             {
-                "text": "Bien que la boisson préférée des Français demeure encore et toujours le café, le thé se hisse en deuxième position du classement.",
+                "text": "Le Service d'État des situations d'urgence d'Ukraine a émis une demande d'assistance internationale par le biais du mécanisme de réponse d'urgence de l'OTAN, le Centre de coordination de la réponse aux catastrophes euro-atlantique.",
                 "audio": "http://127.0.0.1:5000/audio/audio1_1.wav",
-                "duration": 6
+                "duration": 12
             },
             {
-                "text": "En boire est d’ailleurs considéré comme une habitude bénéfique pour la santé depuis l'Antiquité.",
+                "text": "La demande porte sur du matériel lourd pour soutenir les équipes de secours civiles qui font face aux conséquences des attaques quotidiennes de la Russie contre les infrastructures civiles en Ukraine.",
                 "audio": "http://127.0.0.1:5000/audio/audio1_2.wav",
-                "duration": 5
+                "duration": 10
             }
         ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 11
+        "image": "https://www.nato.int/nato_static_fl2014/assets/pictures/images_mfu/2024/8/stock/240820-eardcc-truck.jpg",
+        "totalDuration": 22
     },
     {
         "text": [
             {
-                "text": "Et pour cause, il contiendrait des composants capables de réduire les risques de développer des maladies chroniques, telles que le cancer, les maladies cardiovasculaires, l'arthrite et le diabète, à en croire les conclusions d’une étude publiée dans Author Manuscript le 12 juin 2014.",
+                "text": "Téléchargez les détails complets de la",
                 "audio": "http://127.0.0.1:5000/audio/audio2_1.wav",
-                "duration": 15
+                "duration": 6
             },
             {
-                "text": "Et parmi toutes les catégories de thé qui existent, il semblerait que le thé au jasmin renferme un nombre important de bienfaits, autant pour le bien-être mental que pour la santé de votre peau ou encore de votre digestion.",
+                "text": "Demande d'assistance internationale de l'Ukraine",
                 "audio": "http://127.0.0.1:5000/audio/audio2_2.wav",
-                "duration": 12
+                "duration": 3
             }
         ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 27
-    },
-    {
-        "text": [
-            {
-                "text": "Une fois la fleur infusée avec quelques feuilles de thé, le plus souvent du thé vert, elle révèle toutes ses propriétés.",
-                "audio": "http://127.0.0.1:5000/audio/audio3_1.wav",
-                "duration": 6
-            },
-            {
-                "text": "S’il est dépourvu de calories, de nutriments ou encore de protéines, le thé au jasmin est pourtant riche en antioxydants, “tels que les catéchines, un type de polyphénol qui contribue à de nombreux bienfaits pour la santé”, explique Umo Callins, diététicien du sport et coach sportif, à Well and Good.",
-                "audio": "http://127.0.0.1:5000/audio/audio3_2.wav",
-                "duration": 18
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 24
-    },
-    {
-        "text": [
-            {
-                "text": "Les catéchines sont connues pour leurs propriétés antioxydantes, protégeant ainsi le corps des attaques des radicaux libres et sont également anti-inflammatoires.",
-                "audio": "http://127.0.0.1:5000/audio/audio4_1.wav",
-                "duration": 10
-            },
-            {
-                "text": "Elles réduisent le stress oxydatif et renforcent le système immunitaire contre les maladies, mais aussi contre le vieillissement cutané.",
-                "audio": "http://127.0.0.1:5000/audio/audio4_2.wav",
-                "duration": 7
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 17
-    },
-    {
-        "text": [
-            {
-                "text": "L’une des catéchines les plus puissantes du thé vert est “l'épigallocatéchine gallate (EGCG), qui a été associée à de nombreux bienfaits, notamment la perte de poids et l'amélioration du contrôle de la glycémie, ainsi que la santé cardiaque et bucco-dentaire”, rapporte Healthline.",
-                "audio": "http://127.0.0.1:5000/audio/audio5_1.wav",
-                "duration": 16
-            },
-            {
-                "text": "Il pourrait protéger de certains cancers et du risque de diabète de type 2.",
-                "audio": "http://127.0.0.1:5000/audio/audio5_2.wav",
-                "duration": 4
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 20
-    },
-    {
-        "text": [
-            {
-                "text": "Le thé au jasmin permettrait aussi de faciliter la digestion.",
-                "audio": "http://127.0.0.1:5000/audio/audio6_1.wav",
-                "duration": 5
-            },
-            {
-                "text": "Une affirmation que confirme une étude de 2022, publiée dans la revue Nutrients.",
-                "audio": "http://127.0.0.1:5000/audio/audio6_2.wav",
-                "duration": 5
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 10
-    },
-    {
-        "text": [
-            {
-                "text": "Celle-ci révélait que “le thé au jasmin infusé à froid pourrait être servi comme une boisson fonctionnelle potentielle à base de thé pour prévenir l'obésité et la dysbiose du microbiote intestinal”.",
-                "audio": "http://127.0.0.1:5000/audio/audio7_1.wav",
-                "duration": 24
-            },
-            {
-                "text": "En somme, il peut améliorer la diversité des microbes intestinaux et favoriser les bactéries bénéfiques.",
-                "audio": "http://127.0.0.1:5000/audio/audio7_2.wav",
-                "duration": 6
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 30
-    },
-    {
-        "text": [
-            {
-                "text": "Cette étude montrait aussi qu’il atténuait la prise de poids, les taux sanguins sériques anormaux, l'accumulation de graisses, l'inflammation et l'intolérance au glucose.",
-                "audio": "http://127.0.0.1:5000/audio/audio8_1.wav",
-                "duration": 9
-            },
-            {
-                "text": "“L’arôme du jasmin a un effet calmant sur le système nerveux, améliorant ainsi l’humeur et réduisant le stress”, souligne la diététicienne Amy Shapiro, auprès de Well and Good.",
-                "audio": "http://127.0.0.1:5000/audio/audio8_2.wav",
-                "duration": 10
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 19
-    },
-    {
-        "text": [
-            {
-                "text": "Mais puisqu’il est susceptible de favoriser un microbiote intestinal sain, des chercheurs se sont intéressés à l’axe intestin-cerveau et à cette boisson comme potentiel adjuvant dans les troubles de la dépression.",
-                "audio": "http://127.0.0.1:5000/audio/audio9_1.wav",
-                "duration": 12
-            },
-            {
-                "text": "Ainsi, une autre étude publiée dans Nutrients en décembre 2021, avait découvert que non seulement “ l'extrait de racine de Jasminum sambac a des propriétés anti-inflammatoires et analgésiques”, mais également que son 'intervention “a atténué de manière significative le comportement de type dépressif et les neurotransmetteurs”, tout en augmentant la “diversité et la richesse du microbiote intestinal des rats déprimés”.",
-                "audio": "http://127.0.0.1:5000/audio/audio9_2.wav",
-                "duration": 25
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 37
-    },
-    {
-        "text": [
-            {
-                "text": "Toujours grâce au pouvoir des polyphénols, le thé au jasmin aurait des vertus protectrices contre certaines pathologies liées à l’âge et aux capacités cognitives.",
-                "audio": "http://127.0.0.1:5000/audio/audio10_1.wav",
-                "duration": 9
-            },
-            {
-                "text": "Il est “riche en EGCG, qui peut supprimer l'inflammation et neutraliser les dommages causés par les radicaux libres - deux facteurs clés associés à la progression des maladies d'Alzheimer et de Parkinson”, précise encore Healthline.",
-                "audio": "http://127.0.0.1:5000/audio/audio10_2.wav",
-                "duration": 12
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 21
-    },
-    {
-        "text": [
-            {
-                "text": "En effet, une méta-analyse publiée en 2016 dans Plos One, indiquait que “les résultats ont montré que la consommation de thé était significativement associée à une incidence réduite de troubles cognitifs”.",
-                "audio": "http://127.0.0.1:5000/audio/audio11_1.wav",
-                "duration": 13
-            },
-            {
-                "text": "S’il y a peu d’effets secondaires à la consommation du thé au jasmin, la présence de catéchines “pourrait réduire la capacité de l'organisme à absorber le fer contenu dans les aliments”, indique toujours Healthline.",
-                "audio": "http://127.0.0.1:5000/audio/audio11_2.wav",
-                "duration": 12
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 25
-    },
-    {
-        "text": [
-            {
-                "text": "En grande quantité, elles peuvent augmenter le risque d'anémie ferriprive, notamment pour les personnes présentant un risque de carence en fer, notamment les femmes enceintes, les jeunes enfants et les personnes ayant des restrictions alimentaires.",
-                "audio": "http://127.0.0.1:5000/audio/audio12_1.wav",
-                "duration": 12
-            },
-            {
-                "text": "Il vaudrait donc mieux le consommer à distance des repas plutôt que pendant, et attendre environ une heure.",
-                "audio": "http://127.0.0.1:5000/audio/audio12_2.wav",
-                "duration": 6
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 18
-    },
-    {
-        "text": [
-            {
-                "text": "En cas de problème médical ou de traitement médicamenteux, il vaut toujours mieux demander l'avis de son médecin.",
-                "audio": "http://127.0.0.1:5000/audio/audio13_1.wav",
-                "duration": 6
-            }
-        ],
-        "image": "https://cache.marieclaire.fr/data/photo/w1000_ci/6w/the-microbiote.jpg",
-        "totalDuration": 6
+        "image": "https://www.nato.int/nato_static_fl2014/assets/pictures/images_mfu/2024/8/stock/240820-eardcc-truck.jpg",
+        "totalDuration": 9
     }
 ]

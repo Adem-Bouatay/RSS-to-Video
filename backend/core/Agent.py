@@ -75,7 +75,7 @@ PROMPT = """
 class Agent:
     def __init__(self, api_key):
         genai.configure(api_key=api_key)
-        self.llm = genai.GenerativeModel('gemini-1.5-pro')
+        self.llm = genai.GenerativeModel('gemini-1.5-flash')
 
 
     def extract_content(self, html_content):

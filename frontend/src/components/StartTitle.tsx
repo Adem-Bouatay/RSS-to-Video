@@ -26,7 +26,7 @@ export const StartTitle = ({ title }: { title: string }) => {
       }}
     >
       {characters.map((letter, i) => {
-        const delay = i * 5;
+        const delay = i * 3;
 
         const scale = spring({
           fps: videoConfig.fps,

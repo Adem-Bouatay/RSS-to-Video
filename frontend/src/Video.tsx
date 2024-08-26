@@ -26,7 +26,7 @@ export const Video: React.FC = () => {
           backgroundImage: "linear-gradient(to bottom right, #c7007e, #ffd000)",
         }}
       >
-        <TransitionSeries.Sequence durationInFrames={100}>
+        <TransitionSeries.Sequence durationInFrames={55}>
           <StartTitle title="Latech" />
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition
@@ -38,7 +38,7 @@ export const Video: React.FC = () => {
             config: {
               damping: 200,
             },
-            durationInFrames: 40,
+            durationInFrames: 20,
             durationRestThreshold: 0.01,
           })}
         />

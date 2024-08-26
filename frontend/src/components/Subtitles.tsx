@@ -1,7 +1,7 @@
 import React from "react";
-import { spring, Audio, useCurrentFrame, useVideoConfig } from "remotion";
+import { spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { TransitionSeries } from "@remotion/transitions";
-import { FONT_FAMILY } from "./constants";
+import { FONT_FAMILY } from "../components/constants";
 
 const container: React.CSSProperties = {
   display: "flex",
@@ -14,10 +14,11 @@ const container: React.CSSProperties = {
 const textStyle: React.CSSProperties = {
   fontFamily: FONT_FAMILY,
   padding: 40,
-  backgroundColor: "rgba(0,0,0,.9)",
-  border: "1px solid #fff",
+  backgroundColor: "rgba(37, 37, 37, 0.95)",
+  border: "2px solid #fff",
   width: "95%",
   fontWeight: "bold",
+  borderRadius: 10,
   fontSize: 40,
   display: "block",
   flexWrap: "wrap",

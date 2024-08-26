@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS
 import process  
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 # Serve audio files from the "audio" directory
 
