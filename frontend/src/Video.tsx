@@ -1,13 +1,30 @@
-import { interpolate, Audio, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  interpolate,
+  Audio,
+  useCurrentFrame,
+  useVideoConfig,
+  AbsoluteFill,
+} from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { donut } from "./presentations/CirclePresentation";
 import { Frame } from "./frame";
 import { StartTitle } from "./components/StartTitle";
-import { publicFolderPath } from "./utils/extractData";
+import { extractData, publicFolderPath } from "./utils/extractData";
+import { Loading } from "./components/Loading";
+import { useEffect, useState } from "react";
 
 export const Video: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
+  const [data, setData] = useState<any>(null);
+  const [isFetching, setIsFetching] = useState(true);
+
+  useEffect(() => {
+    extractData().then((data: any) => {
+      setData(data);
+      setIsFetching(false);
+    });
+  }, []);
 
   const opacity = interpolate(
     frame,
@@ -38,13 +55,21 @@ export const Video: React.FC = () => {
             config: {
               damping: 200,
             },
-            durationInFrames: 20,
+            durationInFrames: 25,
             durationRestThreshold: 0.01,
           })}
         />
-        <TransitionSeries.Sequence durationInFrames={2880}>
-          <Frame />
-        </TransitionSeries.Sequence>
+        {isFetching ? (
+          <TransitionSeries.Sequence durationInFrames={500}>
+            <Loading />
+          </TransitionSeries.Sequence>
+        ) : (
+          <TransitionSeries.Sequence
+            durationInFrames={data["articleDuration"] * 95}
+          >
+            <Frame article={data["article"]} />
+          </TransitionSeries.Sequence>
+        )}
       </TransitionSeries>
       <Audio src={`${publicFolderPath}/BackgroundMusic.mp3`} />
     </>

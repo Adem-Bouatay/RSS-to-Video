@@ -212,3 +212,6 @@ out/
 .env
 build
 /front
+/backend/output.json
+/backend/output.html
+/backend/output_with_audio.json

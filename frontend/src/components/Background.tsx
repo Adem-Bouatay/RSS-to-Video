@@ -13,11 +13,13 @@ export const Background: React.FC<{ backgroundImage: string }> = ({
 
   // this animation zooms the image in at the first half and out at the second half
   const animation = (frame: number) => {
-    if (frame < durationInFrames / 2) {
-      return Math.min(1.3, frame / (durationInFrames / 0.3) + 1);
-    } else {
-      return Math.max(1, 1.3 - frame / (durationInFrames / 0.3));
-    }
+    if (durationInFrames > 300)
+      if (frame < durationInFrames / 2) {
+        return Math.min(1.3, frame / (durationInFrames / 0.3) + 1);
+      } else {
+        return Math.max(1, 1.3 - frame / (durationInFrames / 0.3));
+      }
+    else return Math.min(1.3, frame / (durationInFrames / 0.3) + 1);
   };
 
   const scale = animation(frame);

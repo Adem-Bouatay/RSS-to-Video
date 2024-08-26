@@ -1,88 +1,221 @@
-[
-  {
-    "text": [
-      {
-        "text": "Vivre une période canicule quand on est en vacances, c'est une chose Mais la subir alors qu'on doit travailler, ça en est une autre.",
-        "audio": "http://127.0.0.1:5000/audio/audio1_1.wav",
-        "duration": 6
-      },
-
-      {
-        "text": " Pour toutes celles qui doivent cumuler bureau et chaleurs extrêmes, la question du look à arborer face à de telles températures est sans doute survenue à plusieurs reprises.",
-        "audio": "http://127.0.0.1:5000/audio/audio1_3.wav",
-        "duration": 9
-      },
-      {
-        "text": " Comment rester chic et bien habillée même quand le thermomètre affiche 30+ degrés ?",
-        "audio": "http://127.0.0.1:5000/audio/audio1_4.wav",
-        "duration": 5
-      },
-      {
-        "text": " La réponse prend la forme d'une petite robe courte en lin repérée dans la nouvelle collection &Other Stories.",
-        "audio": "http://127.0.0.1:5000/audio/audio1_5.wav",
-        "duration": 6
-      }
-    ],
-    "image": "https://cache.cosmopolitan.fr/data/photo/w1000_ci/6v/robe-quand-il-fait-chaud-travail.jpg",
-    "totalDuration": 26
-  },
-  {
-    "text": [
-      {
-        "text": "Il faut dire que le lin est l'allié mode des journées caniculaires Avec lui, la peau respire et les options de looks sont nombreuses.",
-        "audio": "http://127.0.0.1:5000/audio/audio2_1.wav",
-        "duration": 6
-      },
-      {
-        "text": "Entre la chemise et le short assorti, la robe longue ou courte, la jupe mini ou midi, la combinaison pantalon ou short...",
-        "audio": "http://127.0.0.1:5000/audio/audio2_2.wav",
-        "duration": 6
-      }
-    ],
-    "image": "https://cache.cosmopolitan.fr/data/photo/w680_ci/6v/robe-quand-il-fait-chaud-1.jpg",
-    "totalDuration": 12
-  },
-  {
-    "text": [
-      {
-        "text": "Mais la forme que l'on préfère pour un look de bureau quand il fait chaud est sans conteste la robe courte en lin à fines bretelles et de coupe trapèze.",
-        "audio": "http://127.0.0.1:5000/audio/audio3_1.wav",
-        "duration": 13
-      },
-      {
-        "text": " Cette forme évasée a l'avantage de convenir à toutes les morphologies, mais aussi de laisser l'air circuler,Un atout de taille en période de fortes chaleurs.",
-        "audio": "http://127.0.0.1:5000/audio/audio3_2.wav",
-        "duration": 6
-      }
-    ],
-    "image": "https://cache.cosmopolitan.fr/data/photo/w680_ci/6v/robe-quand-il-fait-chaud-1.jpg",
-    "totalDuration": 22
-  },
-  {
-    "text": [
-      {
-        "text": "Pour vaincre les fortes chaleurs sans perdre un degré de style, la clé est d'éviter l'accumulation,Que cela soit au niveau des vêtements ou des accessoires.",
-        "audio": "http://127.0.0.1:5000/audio/audio4_1.wav",
-        "duration": 5
-      },
-      {
-        "text": " On s'en tient au strict minimum et pour cela, on mise sur des pièces mode qui se suffisent à elles-mêmes.",
-        "audio": "http://127.0.0.1:5000/audio/audio4_3.wav",
-        "duration": 5
-      }
-    ],
-    "image": "https://cache.cosmopolitan.fr/data/photo/w500_h250_ci/6w/robe-quand-il-fait-chaud.webp",
-    "totalDuration": 14
-  },
-  {
-    "text": [
-      {
-        "text": "Outre la petite robe trapèze aussi à l'aise en journée qu'en soirée, on peut aussi se tourner vers le pantalon large agréable à porter ou encore la jupe portefeuille, flatteuse pour la silhouette.",
-        "audio": "http://127.0.0.1:5000/audio/audio5_1.wav",
-        "duration": 10
-      }
-    ],
-    "image": "https://cache.cosmopolitan.fr/data/photo/w500_h250_ci/6w/robe-quand-il-fait-chaud.webp",
-    "totalDuration": 10
-  }
-]
+{
+  "title": "“C'était un peu biaisé dans ma tête...” : Aya Nakamura, cash, prend la parole sur la cérémonie d'ouverture des JO de Paris",
+  "article": [
+    {
+      "text": [
+        {
+          "text": "L'heure est aux confidences pour Aya Nakamura.",
+          "audio": "http://127.0.0.1:5000/audio/audio1_1.wav",
+          "duration": 5
+        },
+        {
+          "text": "Lors d'un live sur ses réseaux sociaux, la chanteuse a abordé en toute transparence sa participation à la cérémonie d'ouverture des Jeux Olympiques de Paris.",
+          "audio": "http://127.0.0.1:5000/audio/audio1_2.wav",
+          "duration": 9
+        },
+        {
+          "text": "De ses répétitions avec la garde républicaine aux polémiques qui l'entourent, elle n'a éludé aucun sujet.",
+          "audio": "http://127.0.0.1:5000/audio/audio1_3.wav",
+          "duration": 5
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766674-l-occasion-pour-l-heureuse-maman-de-deux-580x0-4.jpg",
+      "totalDuration": 19
+    },
+    {
+      "text": [
+        {
+          "text": "Les Jeux Olympiques de Paris 2024 auront eu le mérite de marquer les esprits à l'international.",
+          "audio": "http://127.0.0.1:5000/audio/audio2_1.wav",
+          "duration": 7
+        },
+        {
+          "text": "Le 26 juillet, la tant attendue cérémonie d'ouverture s'est orchestrée dans la ville de l'Amour.",
+          "audio": "http://127.0.0.1:5000/audio/audio2_2.wav",
+          "duration": 5
+        },
+        {
+          "text": "Malgré la pluie torrentielle, tous les artistes à l'honneur ont donné le meilleur d'eux-mêmes pour assurer le spectacle.",
+          "audio": "http://127.0.0.1:5000/audio/audio2_3.wav",
+          "duration": 6
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766681-malgre-la-pression-la-chanteuse-s-est-b-580x0-4.jpg",
+      "totalDuration": 18
+    },
+    {
+      "text": [
+        {
+          "text": "Et parmi eux, Aya Nakamura !",
+          "audio": "http://127.0.0.1:5000/audio/audio3_1.wav",
+          "duration": 2
+        },
+        {
+          "text": "La célèbre chanteuse a brillé aux côtés de la Garde Républicaine sur le pont des Arts, qui relie le Louvre à l'Académie française.",
+          "audio": "http://127.0.0.1:5000/audio/audio3_2.wav",
+          "duration": 7
+        },
+        {
+          "text": "Parée d'une somptueuse tenue dorée, la star, plus rayonnante que jamais, a captivé les foules avec un magnifique medley de deux de ses tubes, Pookie et Djadja, tout en revisitant \"For me, formidable\", l'un des grands classiques de Charles Aznavour.",
+          "audio": "http://127.0.0.1:5000/audio/audio3_3.wav",
+          "duration": 15
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766675-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 24
+    },
+    {
+      "text": [
+        {
+          "text": "Ce dimanche 25 août 2024 au cours d'un live sur ses réseaux sociaux, l'heureuse maman de deux enfants est revenue sur les vives polémiques quant à sa participation.",
+          "audio": "http://127.0.0.1:5000/audio/audio4_1.wav",
+          "duration": 10
+        },
+        {
+          "text": "A rappeler que la star avait notamment fait face à une vague de racisme de la part de groupuscules d'extrême droite.",
+          "audio": "http://127.0.0.1:5000/audio/audio4_2.wav",
+          "duration": 6
+        },
+        {
+          "text": "“Je ne m'y attendais pas du tout, j'étais chokbar (choquée ndlr)”, a confié Aya Nakamura.",
+          "audio": "http://127.0.0.1:5000/audio/audio4_3.wav",
+          "duration": 7
+        },
+        {
+          "text": "“De une, lorsqu'on m'a proposé de faire l'événement (...) je ne savais pas ce que ça représentait.",
+          "audio": "http://127.0.0.1:5000/audio/audio4_4.wav",
+          "duration": 5
+        },
+        {
+          "text": "C'était un peu biaisé dans ma tête”.",
+          "audio": "http://127.0.0.1:5000/audio/audio4_5.wav",
+          "duration": 2
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766676-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 30
+    },
+    {
+      "text": [
+        {
+          "text": "En pleine tourmente, la principale intéressée a été interloquée que des artistes, aient à mi-mots contesté sa légitimité à se produire lors de la cérémonie d'ouverture des JO : “Quand je voyais des trucs sur les réseaux sociaux, Dieu Merci, heureusement, je ne suis pas tombée sur tout (...).",
+          "audio": "http://127.0.0.1:5000/audio/audio5_1.wav",
+          "duration": 16
+        },
+        {
+          "text": "J'ai déjà eu ma dose de toute façon”.",
+          "audio": "http://127.0.0.1:5000/audio/audio5_2.wav",
+          "duration": 2
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766678-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 18
+    },
+    {
+      "text": [
+        {
+          "text": "Face caméra, Aya Nakamura a alors renchéri sans filtre : “J'ai vu tout le monde dire 'et moi ?', 'pourquoi elle ?', 'ce n'est pas normal, je chante mieux'.",
+          "audio": "http://127.0.0.1:5000/audio/audio6_1.wav",
+          "duration": 9
+        },
+        {
+          "text": "Ah bon ?!(...) C'était moi l'élue”.",
+          "audio": "http://127.0.0.1:5000/audio/audio6_2.wav",
+          "duration": 5
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766679-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 14
+    },
+    {
+      "text": [
+        {
+          "text": "Très heureuse de sa prestation, la pétillante brune s'est visiblement bien amusée lors des répétitions, mais aussi le jour J.",
+          "audio": "http://127.0.0.1:5000/audio/audio7_1.wav",
+          "duration": 8
+        },
+        {
+          "text": "“Franchement, c'était trop bien.",
+          "audio": "http://127.0.0.1:5000/audio/audio7_2.wav",
+          "duration": 2
+        },
+        {
+          "text": "Je suis très fière de moi, ça été fait, maintenant tranquille !",
+          "audio": "http://127.0.0.1:5000/audio/audio7_3.wav",
+          "duration": 4
+        },
+        {
+          "text": "Un show de plus qui a été fait”.",
+          "audio": "http://127.0.0.1:5000/audio/audio7_4.wav",
+          "duration": 3
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766680-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 17
+    },
+    {
+      "text": [
+        {
+          "text": "Malgré l'immense pression sur ses épaules, Aya Nakamura a su la gérer avec brio : “Je suis quelqu'un qui intériorise beaucoup.",
+          "audio": "http://127.0.0.1:5000/audio/audio8_1.wav",
+          "duration": 8
+        },
+        {
+          "text": "Je travaille beaucoup sur moi aussi.",
+          "audio": "http://127.0.0.1:5000/audio/audio8_2.wav",
+          "duration": 2
+        },
+        {
+          "text": "Quand même je stresse, j'arrive à canaliser ça (...).",
+          "audio": "http://127.0.0.1:5000/audio/audio8_3.wav",
+          "duration": 4
+        },
+        {
+          "text": "On s'est amusé de ouf avec la Garde Républicaine.",
+          "audio": "http://127.0.0.1:5000/audio/audio8_4.wav",
+          "duration": 3
+        },
+        {
+          "text": "On s'est vraiment amusé pendant les répét'”.",
+          "audio": "http://127.0.0.1:5000/audio/audio8_5.wav",
+          "duration": 3
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766682-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 20
+    },
+    {
+      "text": [
+        {
+          "text": "Louant le travail des musiciens, l'artiste de 29 ans n'imaginait pas que leur collaboration allait autant faire parler.",
+          "audio": "http://127.0.0.1:5000/audio/audio9_1.wav",
+          "duration": 7
+        },
+        {
+          "text": "“Il y a quelques jours on a regardé la redif', on était 'ah ouai Banger (quelque chose d'incroyable ndlr) !",
+          "audio": "http://127.0.0.1:5000/audio/audio9_2.wav",
+          "duration": 7
+        },
+        {
+          "text": "Tu blaguais Aya, au final regarde ! (...) Et concernant les polémiques (...) de toute ma vie avant d'être chanteuse, je n'ai jamais eu de remarques bizarres sur mon physique”, a précisé Aya Nakamura, également ciblée par des commentaires sexistes.",
+          "audio": "http://127.0.0.1:5000/audio/audio9_3.wav",
+          "duration": 17
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766683-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 31
+    },
+    {
+      "text": [
+        {
+          "text": "Et de compléter : “Ce n'est que quand j'ai commencé à être connue que j'ai commencé à avoir des remarques bizarres, du style : 'tu ressembles à un mec'...Ok ! (...) Et je pense que (...) qu'en tant qu'artiste noire, j'ai pris pour tout le monde (...) la caricature de la femme noire que certains ont vu en moi (...)”.",
+          "audio": "http://127.0.0.1:5000/audio/audio10_1.wav",
+          "duration": 17
+        }
+      ],
+      "image": "https://static1.purepeople.com/articles/8/52/65/88/@/7766684-aya-nakamura-chante-lors-de-la-ceremonie-580x0-3.jpg",
+      "totalDuration": 17
+    }
+  ],
+  "articleDuration": 208
+}

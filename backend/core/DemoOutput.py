@@ -32,7 +32,7 @@ class DemoOutput:
             # Assuming `content` is a dictionary with keys like 'pictures' and 'text'
             # Adjust this based on the actual structure of your content
 
-            for item in json_output:
+            for item in json_output['article']:
                 file.write(f"<p>{item['text']}</p>\n")
                 file.write(
                     f"<img src='{item['image']}' alt='Extracted Image' style='max-width:100%;height:auto;'>\n"

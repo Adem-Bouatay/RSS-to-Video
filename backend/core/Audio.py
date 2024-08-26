@@ -31,7 +31,9 @@ class TextToSpeechProcessor:
             duration = frames / float(rate)
         return round(duration)
     def convert_text_to_speech(self):
-        for index, item in enumerate(self.data):
+        array = self.data.get('article')
+        article_duration = 0
+        for index, item in enumerate(array):
             total_paragraph_duration = 0
             paragraph = item.get('text')
             for i, text in enumerate(paragraph):
@@ -45,8 +47,9 @@ class TextToSpeechProcessor:
                 duration = self.get_audio_duration(audio_file_path)
                 paragraph[i] = {'text': text, 'audio': audio_url, 'duration': duration}
                 total_paragraph_duration += duration
-            
-            item['totalDuration'] = round(total_paragraph_duration)
+            item['totalDuration'] = total_paragraph_duration
+            article_duration += total_paragraph_duration
+        self.data['articleDuration'] = article_duration
 
                 
                 

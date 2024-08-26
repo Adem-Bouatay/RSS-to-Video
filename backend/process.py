@@ -14,7 +14,7 @@ def run(url):
     
     start_time = time.time()
     
-    html_extractor = HTMLExtractor()
+    """html_extractor = HTMLExtractor()
     print("-----------------------------EXTRACTING-HTML-----------------------------")
     html_content = html_extractor.get_html(url)
     print("---------------------------END-EXTRACTING-HTML---------------------------")
@@ -28,7 +28,7 @@ def run(url):
                                 lang='fr',
                                 voice_gender="male"
                                 )
-    tts.process()
+    tts.process()"""
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
         # Read and return the content of output.json

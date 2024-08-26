@@ -11,7 +11,7 @@ api_key = os.getenv("API_KEY")
 
 
 def main():
-    url = "https://www.cosmopolitan.fr/robe-quand-il-fait-chaud-le-modele-a-porter-au-travail,2120124.asp?dicbo=v4-Vda3hx9-1081301915-0"
+    url = "https://www.purepeople.com/article/-c-etait-un-peu-biaise-dans-ma-tete-aya-nakamura-cash-prend-la-parole-sur-la-ceremonie-d-ouverture-des-jo-de-paris_a526588/1"
     
     start_time = time.time()
     
@@ -22,7 +22,13 @@ def main():
     agent = Agent(api_key=api_key)
     agent_res = agent.extract_content(html_content=html_content)
     DemoOutput().generate_html_page(content=agent_res)
- 
+    tts = TextToSpeechProcessor(input_json_path="output.json", 
+                                output_json_path="output_with_audio.json", 
+                                samples_path="samples", 
+                                audio_folder='audio', 
+                                lang='fr'
+                                )
+    tts.process()
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
 
