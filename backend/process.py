@@ -51,4 +51,16 @@ def edit_video(paragraph,voice):
         with open('output_with_audio.json', 'r') as file:
             output_data = json.load(file)
         return output_data
+
+def edit_subparaps(paragraph,voice,path):
+    tts = TextToSpeechProcessor(input_json_path="output.json", 
+                                    output_json_path="output_with_audio.json", 
+                                    samples_path="samples", 
+                                    audio_folder='audio', 
+                                    lang='fr',
+                                    voice_gender=voice
+                                    )
+    return tts.edit_subparaph(paragraph,file_path=path)
+     
+
     

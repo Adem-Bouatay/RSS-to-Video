@@ -34,6 +34,23 @@ def edit_video():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     return ouput
+
+@app.route('/editSub', methods=['POST'])
+def edit_Subpara():
+    data = request.get_json()
+    
+    if  data and 'paragraph' in data:
+        paragraph = data['paragraph']
+    if  data and 'voice' in data:
+        voice = data['voice']
+    if  data and 'path' in data:
+        path = data['path']
+    try:
+        ouput=process.edit_subparaps(paragraph=paragraph, voice=voice,path=path)
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    return ouput
     
 @app.route('/audio/<path:filename>', methods=['GET'])
 def serve_audio(filename):

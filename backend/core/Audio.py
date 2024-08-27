@@ -2,6 +2,7 @@ import json
 import os
 from TTS.api import TTS
 import wave
+from urllib.parse import urlparse
 class TextToSpeechProcessor:
     def __init__(self, input_json_path, output_json_path,samples_path, audio_folder='audio', lang='fr',voice_gender="male",base_url='http://127.0.0.1:5000/'):
         self.input_json_path = input_json_path
@@ -115,3 +116,18 @@ class TextToSpeechProcessor:
             self.convert_text_to_speech()
             self.save_data()
             print(f"Audio files have been updated with voice type '{self.voice_gender}' and new text content, if provided.")
+    def edit_subparaph(self, paragraph=None,file_path=None):
+        file_path=urlparse(file_path).path.split('/')[-1]
+        print(file_path)
+        file_path=file_path.replace('.wav', '_edit.wav')
+        audio_file_path = os.path.join(self.audio_folder, file_path)
+        self.tts.tts_to_file(text=paragraph, file_path=audio_file_path, speaker_wav=self.samples, language=self.lang, split_sentences=True)
+        response = {}
+        response['duration'] = self.get_audio_duration(audio_file_path)
+        response['path'] = f"{self.base_url}/{audio_file_path}" 
+        print(response)
+        return response
+
+
+
+        
