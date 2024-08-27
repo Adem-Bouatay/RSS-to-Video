@@ -32,9 +32,12 @@ def run(url):
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
         # Read and return the content of output.json
-    with open('output_with_audio.json', 'r') as file:
-        output_data = json.load(file)
-    
+    try:    
+        with open('output_with_audio.json', 'r', encoding="UTF-8") as file:
+            output_data = json.load(file)
+    except Exception as e:
+        print(f"Error reading output_with_audio.json: {e}")
+        output_data = {"error": "An error occurred while processing the generated text"}
     return output_data
 
 

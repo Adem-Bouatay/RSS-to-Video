@@ -1,0 +1,68 @@
+"use client";
+
+import { Player } from "@remotion/player";
+import type { NextPage } from "next";
+import React, { useMemo, useState } from "react";
+import { Video } from "../../remotion/Video";
+import {
+  CompositionProps,
+  defaultMyCompProps,
+  DURATION_IN_FRAMES,
+  VIDEO_FPS,
+  VIDEO_HEIGHT,
+  VIDEO_WIDTH,
+} from "../../types/constants";
+import { z } from "zod";
+import { RenderControls } from "../../components/RenderControls";
+import Editor from "@/components/Editor";
+import { useArticle } from "@/context/ArticleProvider";
+
+const Home: NextPage = () => {
+  const [text, setText] = useState<string>(defaultMyCompProps.title);
+  const { articles } = useArticle();
+  console.log(articles);
+
+  const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
+    return {
+      title: text,
+    };
+  }, [text]);
+
+  return (
+    <div className="w-full h-full p-14">
+      <div className="w-full flex flex-col items-center lg:flex-row lg:items-start space-x-12 h-full mb-10">
+        <section className="w-1/2">
+          <div className="rounded-xl relative">
+            <div className="absolute -inset-2 rounded-lg bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 opacity-40 blur"></div>
+            <Player
+              component={Video}
+              inputProps={inputProps}
+              durationInFrames={DURATION_IN_FRAMES}
+              fps={VIDEO_FPS}
+              compositionHeight={VIDEO_HEIGHT}
+              compositionWidth={VIDEO_WIDTH}
+              style={{
+                width: "100%",
+                borderRadius: "12px",
+                boxShadow: "5 10 10px rgba(0, 0, 0, 0.2)",
+              }}
+              controls
+            />
+          </div>
+          <div className="pt-10">
+            <RenderControls
+              text={text}
+              setText={setText}
+              inputProps={inputProps}
+            ></RenderControls>
+          </div>
+        </section>
+        <section className="w-1/2">
+          <Editor articleData={articles[0]} />
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
