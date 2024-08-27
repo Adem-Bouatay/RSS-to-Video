@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 import process  
 import os
-
+import core.Audio as Audio
 app = Flask(__name__)
 CORS(app)
 
@@ -20,6 +20,20 @@ def process_url():
         return jsonify(output_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+@app.route('/edit', methods=['POST'])
+def edit_video():
+    data = request.get_json()
+    
+    if  data and 'paragraph' in data:
+        paragraph = data['paragraph']
+    if  data and 'voice' in data:
+        voice = data['voice']
+    try:
+        ouput=process.edit_video(paragraph=paragraph, voice=voice)
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    return ouput
     
 @app.route('/audio/<path:filename>', methods=['GET'])
 def serve_audio(filename):

@@ -8,13 +8,14 @@ import time
 import json
 load_dotenv()
 api_key = os.getenv("API_KEY")
+from core.Audio import TextToSpeechProcessor
 
 
 def run(url):
     
     start_time = time.time()
     
-    """html_extractor = HTMLExtractor()
+    html_extractor = HTMLExtractor()
     print("-----------------------------EXTRACTING-HTML-----------------------------")
     html_content = html_extractor.get_html(url)
     print("---------------------------END-EXTRACTING-HTML---------------------------")
@@ -28,7 +29,7 @@ def run(url):
                                 lang='fr',
                                 voice_gender="male"
                                 )
-    tts.process()"""
+    tts.process()
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
         # Read and return the content of output.json
@@ -37,4 +38,17 @@ def run(url):
     
     return output_data
 
-
+def edit_video(paragraph,voice):
+        tts = TextToSpeechProcessor(input_json_path="output.json", 
+                                    output_json_path="output_with_audio.json", 
+                                    samples_path="samples", 
+                                    audio_folder='audio', 
+                                    lang='fr',
+                                    voice_gender=voice
+                                    )
+        
+        tts.edit_voice(paragraph) 
+        with open('output_with_audio.json', 'r') as file:
+            output_data = json.load(file)
+        return output_data
+    
