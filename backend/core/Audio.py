@@ -21,11 +21,23 @@ class TextToSpeechProcessor:
         """Load the JSON data from the input file."""
         with open(self.input_json_path, 'r',encoding='utf-8') as file:
             self.data = json.load(file)
-
+    
     def create_audio_folder(self):
-        """Create the audio folder if it doesn't exist."""
-        os.makedirs(self.audio_folder, exist_ok=True)
-
+        """Create the audio folder if it doesn't exist, and clear it if it does."""
+        if os.path.exists(self.audio_folder):
+            # Clear all files in the existing folder
+            for filename in os.listdir(self.audio_folder):
+                file_path = os.path.join(self.audio_folder, filename)
+                try:
+                    if os.path.isfile(file_path) or os.path.islink(file_path):
+                        os.unlink(file_path)  # Remove the file
+                    elif os.path.isdir(file_path):
+                        shutil.rmtree(file_path)  # Remove the directory
+                except Exception as e:
+                    print(f"Failed to delete {file_path}. Reason: {e}")
+        else:
+            # Create the folder if it doesn't exist
+            os.makedirs(self.audio_folder, exist_ok=True)
     def get_audio_duration(self, file_path):
         """Get the duration of a WAV file in seconds."""
         with wave.open(file_path, 'rb') as wav_file:
@@ -125,7 +137,6 @@ class TextToSpeechProcessor:
         response = {}
         response['duration'] = self.get_audio_duration(audio_file_path)
         response['path'] = f"{self.base_url}/{audio_file_path}" 
-        print(response)
         return response
 
 
