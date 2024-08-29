@@ -6,9 +6,11 @@ import time
 import core.Audio as Audio
 app = Flask(__name__)
 CORS(app)
-import task_manager as tm  # Importing task_manager module
+from task_manager import TaskManager # Importing task_manager module
 import threading
 # Serve audio files from the "audio" directory
+
+tm = TaskManager()  # Create a new TaskManager instance
 
 @app.route('/process', methods=['POST'])
 def process_url():
@@ -22,8 +24,8 @@ def process_url():
 
     def run_task():
         try:
-            tm.update_task_progress(task_id, 10, 'in_progress')  # Example initial progress update
-            output_data = process.run(url)
+            tm.update_task_progress(task_id, 0, 'in_progress')  # Example initial progress update
+            output_data = process.run(url,tm,task_id)  # Run the main process
             tm.complete_task(task_id, output_data)  # Mark task as completed
         except Exception as e:
             tm.fail_task(task_id, str(e))  # Mark task as failed

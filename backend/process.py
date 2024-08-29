@@ -11,7 +11,7 @@ api_key = os.getenv("API_KEY")
 from core.Audio import TextToSpeechProcessor
 
 
-def run(url):
+def run(url,tm,task_id):
     start_time = time.time()
     
     html_extractor = HTMLExtractor()
@@ -26,9 +26,12 @@ def run(url):
                                 samples_path="samples", 
                                 audio_folder='audio', 
                                 lang='fr',
-                                voice_gender="male"
+                                voice_gender="male",
+                                task_id=task_id,
+                                task_manager=tm
                                 )
     tts.process()
+    
     end_time = time.time()
     print(f"Total time: {end_time - start_time:.2f} seconds")
         # Read and return the content of output.json
