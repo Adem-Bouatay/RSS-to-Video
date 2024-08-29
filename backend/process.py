@@ -12,7 +12,6 @@ from core.Audio import TextToSpeechProcessor
 
 
 def run(url):
-    
     start_time = time.time()
     
     html_extractor = HTMLExtractor()

@@ -4,7 +4,6 @@ import { CompositionProps, COMP_NAME } from "../types/constants";
 import { Button } from "./Button";
 import { DownloadButton } from "./DownloadButton";
 import { ErrorComp } from "./Error";
-import { Input } from "./Input";
 import { ProgressBar } from "./ProgressBar";
 
 export const RenderControls: React.FC<{
