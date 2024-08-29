@@ -1,6 +1,7 @@
 import google.generativeai as genai
 from core.Extractor import JSONExtractor
 import time
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 PROMPT = """
             As an expert in analyzing articles for speech synthesis, your task is to extract and structure the text of the article. REMOVE ALL  the HTML BALISES like href or <a> or anything start with < , i want it to be only Text to read like News and make sure each picture is related to the context of its paraphraph
@@ -64,6 +65,7 @@ class Agent:
     def extract_content(self, html_content):
         start = time.time()
         response = self.llm.generate_content(PROMPT + html_content).text
+        print(response)
         end = time.time()
         print("Time taken: ", int(end-start),"sec \n" ,"Response generated!!","\n----------------------------------------------------------\n")
         print("AGENT RES : ",response,"----------------------------------------------------------\n",sep="\n")
