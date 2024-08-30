@@ -27,6 +27,11 @@ const Home: NextPage = () => {
       status = progress.status;
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
+    if (status === "completed") {
+      const data = await getConvertProgress(taskId);
+      addArticle(data.output);
+      router.push("/article");
+    }
   };
 
   return (
