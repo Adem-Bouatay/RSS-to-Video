@@ -29,3 +29,17 @@ export async function convertURL(url: string) {
     console.error(error);
   }
 }
+
+export async function getConvertProgress(task_id: string) {
+  try {
+    const url = `/tasks/${task_id}/progress`;
+    const res = await publicRequest.get(url, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

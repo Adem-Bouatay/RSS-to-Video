@@ -18,8 +18,6 @@ class TextToSpeechProcessor:
         self.task_manager = task_manager
 
 
-        
-
     def load_data(self):
         """Load the JSON data from the input file."""
         with open(self.input_json_path, 'r',encoding='utf-8') as file:
