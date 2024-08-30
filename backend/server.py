@@ -20,7 +20,7 @@ def process_url():
     task_id = tm.create_task(url)
     tm.add_task_to_queue(task_id, 'process', {'url': url})
     
-    return jsonify({"task_id": task_id, "status": "started"})
+    return jsonify({"task_id": task_id, "status": "pending"})
 
 @app.route('/tasks/<task_id>/progress', methods=['GET'])
 def get_task_progress(task_id):
@@ -34,6 +34,11 @@ def get_task_progress(task_id):
 def get_queued_tasks():
     queued_tasks = tm.get_queued_tasks()
     return jsonify(queued_tasks)
+
+@app.route('/tasks/queue/clear', methods=['POST'])
+def clear_task_queue():
+    tm.clear_queue()
+    return jsonify({"status": "Queue cleared"})
 
 @app.route('/tasks/<task_id>/result', methods=['GET'])
 def get_task_result(task_id):

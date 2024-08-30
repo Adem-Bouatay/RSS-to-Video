@@ -100,3 +100,7 @@ class TaskManager:
                 }
                 queued_tasks.append(task_info)
         return queued_tasks
+    
+    def clear_queue(self):
+        with self.task_queue.mutex:
+            self.task_queue.queue.clear()

@@ -22,7 +22,6 @@ const Home: NextPage = () => {
     setState("generating");
     while (status !== "completed") {
       const progress = await getConvertProgress(taskId);
-      console.log(progress);
       setProgress(progress.progress);
       status = progress.status;
       await new Promise((resolve) => setTimeout(resolve, 1000));
