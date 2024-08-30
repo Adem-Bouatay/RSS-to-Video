@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     }
     if (status === "completed") {
       const data = await getConvertProgress(taskId);
-      addArticle(data);
+      addArticle(data.output);
       router.push("/editor");
     }
   };

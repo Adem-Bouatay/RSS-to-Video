@@ -19,7 +19,6 @@ import { useArticle } from "@/context/ArticleProvider";
 
 const Home: NextPage = () => {
   const { articles } = useArticle();
-  console.log(articles);
 
   const [text, setText] = useState<string>(articles[0].title);
 
