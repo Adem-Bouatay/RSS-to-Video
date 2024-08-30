@@ -9,22 +9,13 @@ import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { donut } from "./presentations/CirclePresentation";
 import { Frame } from "./frame";
 import { StartTitle } from "./components/StartTitle";
-import { extractData, publicFolderPath } from "./utils/extractData";
-import { Loading } from "./components/Loading";
-import { useEffect, useState } from "react";
+import { publicFolderPath } from "./utils/extractData";
+import { CompositionProps } from "@/types/constants";
+import { z } from "zod";
 
-export const Video: React.FC = () => {
+export const Video = (inputData: z.infer<typeof CompositionProps>) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
-  const [data, setData] = useState<any>(null);
-  const [isFetching, setIsFetching] = useState(true);
-
-  useEffect(() => {
-    extractData().then((data: any) => {
-      setData(data);
-      setIsFetching(false);
-    });
-  }, []);
 
   const opacity = interpolate(
     frame,
@@ -59,17 +50,12 @@ export const Video: React.FC = () => {
             durationRestThreshold: 0.01,
           })}
         />
-        {isFetching ? (
-          <TransitionSeries.Sequence durationInFrames={500}>
-            <Loading />
-          </TransitionSeries.Sequence>
-        ) : (
-          <TransitionSeries.Sequence
-            durationInFrames={data["articleDuration"] * 95}
-          >
-            <Frame article={data["article"]} />
-          </TransitionSeries.Sequence>
-        )}
+
+        <TransitionSeries.Sequence
+          durationInFrames={inputData["articleDuration"] * 95}
+        >
+          <Frame article={inputData["article"]} />
+        </TransitionSeries.Sequence>
       </TransitionSeries>
       <Audio src={`${publicFolderPath}/BackgroundMusic.mp3`} />
     </>

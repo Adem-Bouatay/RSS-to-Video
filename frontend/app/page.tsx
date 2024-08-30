@@ -28,8 +28,8 @@ const Home: NextPage = () => {
     }
     if (status === "completed") {
       const data = await getConvertProgress(taskId);
-      addArticle(data.output);
-      router.push("/article");
+      addArticle(data);
+      router.push("/editor");
     }
   };
 

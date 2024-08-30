@@ -18,15 +18,20 @@ import Editor from "@/components/Editor";
 import { useArticle } from "@/context/ArticleProvider";
 
 const Home: NextPage = () => {
-  const [text, setText] = useState<string>(defaultMyCompProps.title);
   const { articles } = useArticle();
   console.log(articles);
 
+  const [text, setText] = useState<string>(articles[0].title);
+
   const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
     return {
-      title: text,
+      title: articles[0].title,
+      article: articles[0].article,
+      articleDuration: articles[0].articleDuration,
     };
   }, [text]);
+
+  console.log(inputProps);
 
   return (
     <div className="w-full h-full p-14">

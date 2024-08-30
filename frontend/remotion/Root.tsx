@@ -1,5 +1,6 @@
 import { Composition } from "remotion";
 import { Video } from "./Video";
+import { defaultMyCompProps } from "@/types/constants";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -17,9 +18,7 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         // You can override these props for each render:
         // https://www.remotion.dev/docs/parametrized-rendering
-        defaultProps={{
-          titleColor: "#000000",
-        }}
+        defaultProps={defaultMyCompProps}
       />
     </>
   );
