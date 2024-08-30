@@ -41,7 +41,7 @@ const Home: NextPage = () => {
             <Player
               component={Video}
               inputProps={inputProps}
-              durationInFrames={DURATION_IN_FRAMES}
+              durationInFrames={(inputProps.articleDuration + 20) * 30}
               fps={VIDEO_FPS}
               compositionHeight={VIDEO_HEIGHT}
               compositionWidth={VIDEO_WIDTH}
