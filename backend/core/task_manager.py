@@ -1,5 +1,7 @@
 # task_manager.py
+import time
 import uuid
+from datetime import datetime
 
 class TaskManager:
 # Dictionary to store tasks and their statuses
@@ -8,20 +10,29 @@ class TaskManager:
 
     # Function to update task progress
     def update_task_progress(self,task_id, progress, status, output=None):
-        self.tasks[task_id] = {
-            'progress': progress,
-            'status': status,
-            'output': output
-        }
+        task = self.tasks[task_id]
+        if progress is not None:
+            task['progress'] = progress
+        if status is not None:
+            task['status'] = status
+        if output is not None:
+            task['output'] = output
+        self.tasks[task_id] = task
 
-    # Function to get task by ID
     def get_task(self,task_id):
         return self.tasks.get(task_id)
-
-    # Function to create a new task
-    def create_task(self):
+    def create_task(self, url=None):
+        print(url)
         task_id = str(uuid.uuid4())
-        self.tasks[task_id] = {'progress': 0, 'status': 'started'}
+        current_time = datetime.now() 
+        formatted_date_time = current_time.strftime("%Y-%m-%d at %H:%M:%S")
+
+        self.tasks[task_id] = {
+            'progress': 0,
+            'status': 'started',
+            'creation_date': formatted_date_time,
+            'url': url
+        }
         return task_id
 
     # Function to complete a task
