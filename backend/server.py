@@ -30,6 +30,11 @@ def get_task_progress(task_id):
     else:
         return jsonify({"error": "Task not found"}), 404
 
+@app.route('/tasks/queue', methods=['GET'])
+def get_queued_tasks():
+    queued_tasks = tm.get_queued_tasks()
+    return jsonify(queued_tasks)
+
 @app.route('/tasks/<task_id>/result', methods=['GET'])
 def get_task_result(task_id):
     task = tm.get_task(task_id)

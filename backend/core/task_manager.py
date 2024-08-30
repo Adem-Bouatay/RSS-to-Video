@@ -16,7 +16,7 @@ class TaskManager:
         while True:
             task_id, task_type, data = self.task_queue.get()
             if task_id is None:
-                break  # Exit the worker if None is encountered
+                break 
 
             try:
                 if task_type == 'process':
@@ -84,5 +84,19 @@ class TaskManager:
         self.task_queue.put((task_id, task_type, data))
 
     def stop_worker(self):
-        self.task_queue.put((None, None, None))  # Signal the worker to exit
-        self.worker_thread.join()  # Wait for the worker thread to exit
+        self.task_queue.put((None, None, None))
+        # Wait for the worker thread to exit
+        self.worker_thread.join()  
+
+    def get_queued_tasks(self):
+        queued_tasks = []
+        with self.task_queue.mutex:
+            for task in self.task_queue.queue:
+                task_id, task_type, _ = task
+                task_info = {
+                    'task_id': task_id,
+                    'task_type': task_type,
+                    'status': self.tasks[task_id]['status']
+                }
+                queued_tasks.append(task_info)
+        return queued_tasks
