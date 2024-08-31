@@ -48,8 +48,17 @@ class TextToSpeechProcessor:
             duration = frames / float(rate)
         return round(duration)
     
+    def get_number_sub_paragraphs(self):
+        nb_sub_paragraphs = 0
+        array = self.data.get('article')
+        for paragraph in array:
+            nb_sub_paragraphs += len(paragraph.get('text'))
+        return nb_sub_paragraphs
+            
     def convert_text_to_speech(self):
         array = self.data.get('article')
+        nb_sub_paragraphs = self.get_number_sub_paragraphs()
+        sub_paragraphs_done = 0
         article_duration = 0
         self.progress = 0
         for index, item in enumerate(array):
@@ -68,7 +77,8 @@ class TextToSpeechProcessor:
                 total_paragraph_duration += duration
                 
                 # Update the progress    
-                self.progress = ((i + 1) / len(paragraph)) * ((index + 1) / len(array))
+                sub_paragraphs_done += 1
+                self.progress = sub_paragraphs_done / nb_sub_paragraphs
                 self.task_manager.update_task_progress(self.task_id, self.progress, 'in_progress') 
                 print(f"\nProgress: {round(self.progress * 100, 2)}%\n")
             
