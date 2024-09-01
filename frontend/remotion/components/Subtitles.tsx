@@ -1,5 +1,5 @@
 import React from "react";
-import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { spring, useCurrentFrame, useVideoConfig, Audio } from "remotion";
 import { TransitionSeries } from "@remotion/transitions";
 import { FONT_FAMILY } from "../components/constants";
 
@@ -48,7 +48,7 @@ export const Subtitles: React.FC<{
       {subtitles.map((subItem: any, subIndex: number) => (
         <TransitionSeries.Sequence
           key={`sub-sequence-${subIndex}`}
-          durationInFrames={subItem.duration * 30 + 30}
+          durationInFrames={subItem.duration * videoConfig.fps + 30}
           style={container}
         >
           <h1 style={textStyle}>
@@ -76,7 +76,7 @@ export const Subtitles: React.FC<{
               );
             })}
           </h1>
-          {/*subItem.audio && <Audio src={`${subItem.audio}`} />*/}
+          {subItem.audio && <Audio src={`${subItem.audio}`} />}
         </TransitionSeries.Sequence>
       ))}
     </TransitionSeries>

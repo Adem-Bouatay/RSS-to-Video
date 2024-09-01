@@ -9,13 +9,13 @@ import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { donut } from "./presentations/CirclePresentation";
 import { Frame } from "./frame";
 import { StartTitle } from "./components/StartTitle";
-import { publicFolderPath } from "./utils/extractData";
 import { CompositionProps } from "@/types/constants";
 import { z } from "zod";
+import { calculateDurationInFrames } from "./utils/DurationCalculator";
 
 export const Video = (inputData: z.infer<typeof CompositionProps>) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  const { durationInFrames, fps } = useVideoConfig();
 
   const opacity = interpolate(
     frame,
@@ -52,12 +52,15 @@ export const Video = (inputData: z.infer<typeof CompositionProps>) => {
         />
 
         <TransitionSeries.Sequence
-          durationInFrames={inputData["articleDuration"] * 95}
+          durationInFrames={calculateDurationInFrames(
+            inputData["articleDuration"],
+            inputData["article"].length,
+            fps
+          )}
         >
           <Frame article={inputData["article"]} />
         </TransitionSeries.Sequence>
       </TransitionSeries>
-      <Audio src={`${publicFolderPath}/BackgroundMusic.mp3`} />
     </>
   );
 };

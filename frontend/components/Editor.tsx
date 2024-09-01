@@ -107,12 +107,6 @@ const Editor: React.FC<{ articleData: Article }> = ({ articleData }) => {
                 type="radio"
                 className="hidden peer/fade"
               />
-              <label
-                htmlFor="fade"
-                className="h-full flex-shrink-0 w-20 text-center p-2 border border-primary rounded-xl peer-checked/fade:bg-gradient-to-r from-rose-500 to-yellow-500 duration-200 peer-checked/fade:text-white"
-              >
-                Fade
-              </label>
             </div>
           </div>
         </span>

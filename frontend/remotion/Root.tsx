@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { Video } from "./Video";
-import { defaultMyCompProps } from "@/types/constants";
+import { calculateDurationInFrames } from "./utils/DurationCalculator";
+import { defaultMyCompProps } from "./components/constants";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -12,7 +13,11 @@ export const RemotionRoot: React.FC = () => {
         // npx remotion render src/index.ts <id> out/video.mp4
         id="test"
         component={Video}
-        durationInFrames={8000}
+        durationInFrames={calculateDurationInFrames(
+          defaultMyCompProps.articleDuration,
+          defaultMyCompProps.article.length,
+          30
+        )}
         fps={30}
         width={1920}
         height={1080}

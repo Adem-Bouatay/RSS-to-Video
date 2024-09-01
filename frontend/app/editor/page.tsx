@@ -16,6 +16,7 @@ import { z } from "zod";
 import { RenderControls } from "../../components/RenderControls";
 import Editor from "@/components/Editor";
 import { useArticle } from "@/context/ArticleProvider";
+import { calculateDurationInFrames } from "@/remotion/utils/DurationCalculator";
 
 const Home: NextPage = () => {
   const { articles } = useArticle();
@@ -41,7 +42,13 @@ const Home: NextPage = () => {
             <Player
               component={Video}
               inputProps={inputProps}
-              durationInFrames={(inputProps.articleDuration + 20) * 30}
+              durationInFrames={
+                calculateDurationInFrames(
+                  inputProps.articleDuration,
+                  inputProps.article.length,
+                  VIDEO_FPS
+                ) + 30
+              }
               fps={VIDEO_FPS}
               compositionHeight={VIDEO_HEIGHT}
               compositionWidth={VIDEO_WIDTH}

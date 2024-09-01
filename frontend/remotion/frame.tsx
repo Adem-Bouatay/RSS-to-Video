@@ -12,7 +12,7 @@ import { donut } from "./presentations/CirclePresentation";
 
 export const Frame: React.FC<{ article: any }> = ({ article }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  const { durationInFrames, fps } = useVideoConfig();
 
   const opacity = interpolate(
     frame,
@@ -67,10 +67,10 @@ export const Frame: React.FC<{ article: any }> = ({ article }) => {
               )}
               <TransitionSeries.Sequence
                 key={`sequence-${index}`}
-                durationInFrames={item.totalDuration * 30}
+                durationInFrames={item.totalDuration * fps}
               >
                 <AbsoluteFill style={{ opacity }}>
-                  <Sequence durationInFrames={item.totalDuration * 30}>
+                  <Sequence durationInFrames={item.totalDuration * fps}>
                     <Background backgroundImage={item.image} />
                     <Subtitles subtitles={item.text} />
                   </Sequence>

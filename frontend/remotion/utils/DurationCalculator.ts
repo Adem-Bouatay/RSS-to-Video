@@ -2,11 +2,9 @@
 
 // Utility function to calculate duration in frames based on text length
 export const calculateDurationInFrames = (
-  text: string,
+  articleDuration: number,
+  nbParagraphs: number,
   fps: number
 ): number => {
-  const wordsPerSecond = 2.5; // Adjust this value based on desired speed
-  const wordCount = text.split(" ").length;
-  const durationInSeconds = wordCount / wordsPerSecond;
-  return Math.ceil(durationInSeconds * fps);
+  return articleDuration * fps + nbParagraphs * 5; // 5 equals the duration of the transition between paragraphs 25 - 20
 };

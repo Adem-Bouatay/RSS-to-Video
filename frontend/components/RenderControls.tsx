@@ -5,6 +5,13 @@ import { Button } from "./Button";
 import { DownloadButton } from "./DownloadButton";
 import { ErrorComp } from "./Error";
 import { ProgressBar } from "./ProgressBar";
+import { calculateDurationInFrames } from "@/remotion/utils/DurationCalculator";
+
+const formatSeconds = (seconds: number) => {
+  const date = new Date(1970, 0, 1);
+  date.setSeconds(seconds);
+  return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+};
 
 export const RenderControls: React.FC<{
   text: string;
@@ -12,6 +19,12 @@ export const RenderControls: React.FC<{
   inputProps: z.infer<typeof CompositionProps>;
 }> = ({ text, setText, inputProps }) => {
   const { renderMedia, state, undo } = useRendering(COMP_NAME, inputProps);
+  const durationInFramesWithoutStartFrame = calculateDurationInFrames(
+    inputProps["articleDuration"],
+    inputProps["article"].length,
+    30
+  );
+  const duration = (durationInFramesWithoutStartFrame + 30) / 30;
 
   return (
     <div className="flex flex-col">
@@ -22,7 +35,7 @@ export const RenderControls: React.FC<{
           <div className="flex flex-col items-center space-y-10">
             <span className="flex items-center space-x-5 text-lg font-medium">
               <h1 className="text-primary">Duration:</h1>
-              <p className="text-gray-500">5:06</p>
+              <p className="text-gray-500">{formatSeconds(duration)}</p>
             </span>
             <Button
               disabled={state.status === "invoking"}
