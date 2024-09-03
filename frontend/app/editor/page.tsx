@@ -6,8 +6,6 @@ import React, { useMemo, useState } from "react";
 import { Video } from "../../remotion/Video";
 import {
   CompositionProps,
-  defaultMyCompProps,
-  DURATION_IN_FRAMES,
   VIDEO_FPS,
   VIDEO_HEIGHT,
   VIDEO_WIDTH,
@@ -23,13 +21,13 @@ const Home: NextPage = () => {
 
   const [text, setText] = useState<string>(articles[0].title);
 
-  const inputProps: z.infer<typeof CompositionProps> = useMemo(() => {
-    return {
-      title: articles[0].title,
-      article: articles[0].article,
-      articleDuration: articles[0].articleDuration,
-    };
-  }, [text]);
+  const [inputProps, setInputProps] = useState<
+    z.infer<typeof CompositionProps>
+  >({
+    title: articles[0].title,
+    article: articles[0].article,
+    articleDuration: articles[0].articleDuration,
+  });
 
   console.log(inputProps);
 
@@ -69,7 +67,7 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="w-1/2">
-          <Editor articleData={articles[0]} />
+          <Editor articleData={inputProps} setInputProps={setInputProps} />
         </section>
       </div>
     </div>

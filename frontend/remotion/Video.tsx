@@ -7,6 +7,7 @@ import {
 } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { donut } from "./presentations/CirclePresentation";
+import { star } from "./presentations/StarPresentation";
 import { Frame } from "./frame";
 import { StartTitle } from "./components/StartTitle";
 import { CompositionProps } from "@/types/constants";
@@ -14,18 +15,34 @@ import { z } from "zod";
 import { calculateDurationInFrames } from "./utils/DurationCalculator";
 
 export const Video = (inputData: z.infer<typeof CompositionProps>) => {
-  const frame = useCurrentFrame();
-  const { durationInFrames, fps } = useVideoConfig();
+  const { fps } = useVideoConfig();
 
-  const opacity = interpolate(
-    frame,
-    [durationInFrames - 25, durationInFrames - 15],
-    [1, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    }
-  );
+  let transition = donut({
+    width: 1920,
+    height: 1080,
+  });
+
+  switch (inputData["transitionType"]) {
+    case "circle":
+      transition = donut({
+        width: 1920,
+        height: 1080,
+      });
+      break;
+    case "star":
+      transition = star({
+        width: 1920,
+        height: 1080,
+      });
+      break;
+
+    default:
+      transition = donut({
+        width: 1920,
+        height: 1080,
+      });
+      break;
+  }
 
   return (
     <>
@@ -38,10 +55,7 @@ export const Video = (inputData: z.infer<typeof CompositionProps>) => {
           <StartTitle title="Latech" />
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition
-          presentation={donut({
-            width: 1920,
-            height: 1080,
-          })}
+          presentation={transition}
           timing={springTiming({
             config: {
               damping: 200,

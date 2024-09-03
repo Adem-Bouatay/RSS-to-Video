@@ -17,6 +17,7 @@ export const CompositionProps = z.object({
     })
   ),
   articleDuration: z.number(), // The total duration for the entire article
+  transitionType: z.string().optional(), // The type of transition between each article item
 });
 
 export const defaultMyCompProps: z.infer<typeof CompositionProps> = {
